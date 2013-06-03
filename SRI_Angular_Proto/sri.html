@@ -1,0 +1,72 @@
+<html ng-app>
+<head>
+	<title>SRI</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+	<script src="sri.js"></script>
+</head>
+<body ng-controller="EvaluationController">
+
+
+
+
+	<div>
+		{{testItems[trialIndex].passage}}
+	</div>
+	<div>
+		{{questionText}}
+	</div>
+	<div>
+		<div ng-class="{selected: $index==selectedIndex}" ng-click="answerChosen($index)"  ng-repeat="answer in testItems[trialIndex].answers">{{answer}}</div>		
+	</div>
+
+
+</body>
+<script >
+	function EvaluationController($scope){
+		$scope.trialIndex = 0;
+		$scope.testItems = [
+		{ 	practice:false, 
+			contentID:'sri.test.instance.6659',  
+			passage: "One of the reasons racing was so appealing was the excitement. Jeff, John, and Carol were spending their spare time amid the lights and sights, the sounds and the smells of motor racing and with the emotions of winning and losing. The buzzing of the cars around the track, the inherent danger of an accident, and the carnival atmosphere all made racing fun and stimulating. Jeff, the shy little towheaded kid, was the center of attention and his parents were, too, by reflection.",
+			question: 'They found racing ________.',
+			answers:['scary','fascinating','unethical','profitable']
+		}
+
+		];
+
+		$scope.questionText = $scope.testItems[$scope.trialIndex].question;
+
+		
+		$scope.selectedIndex  = -1;
+
+		$scope.answerChosen = function(index){
+			$scope.selectedIndex = index;
+			$scope.getQuestionText();
+		};
+
+		$scope.getQuestionText = function(){
+			if($scope.selectedIndex > -1){
+				$scope.questionText = $scope.testItems[$scope.trialIndex].question.replace('________',$scope.testItems[$scope.trialIndex].answers[$scope.selectedIndex]);
+			}else{
+				$scope.questionText =  $scope.testItems[$scope.trialIndex].question;				
+			}
+		}
+	}
+
+</script>
+<style type="text/css">
+	.selected {
+		background-color: green;
+	}
+
+	.selected-true {
+		background-color: yellow;
+		color: gray;
+	}
+	
+	.selected-false {
+		background-color: transparent;
+	}
+
+</style>
+</html>
