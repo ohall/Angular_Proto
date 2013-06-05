@@ -1,0 +1,84 @@
+<div class="evalDiv" ng-controller="MainCtrl" >
+    <img src="images/sri_welcome_logo.png">
+    <div class="passage">
+        {{testItems[trialIndex].passage}}
+    </div>
+    <div class="question">
+        {{questionText}}
+    </div>
+    <div class="answers">
+        <div class="eachAnswer"
+             ng-repeat="answer in testItems[trialIndex].answers">
+                <span class="selected-{{$index==selectedIndex}}"
+                      ng-click="answerChosen($index)">{{answer}}
+                </span>
+        </div>
+    </div>
+    <button ng-click="goButtonClicked()" class="goonButton" ng-disabled="selectedIndex == -1" >NEXT</button>
+    <style type="text/css">
+
+        body{
+            background-color: #2c2c2c;
+            /*background-image:url('/images/sri_welcome_lines.png');*/
+            /*background-repeat:no-repeat;*/
+            /*background-size: 100%;*/
+        }
+
+        .evalDiv{
+
+        }
+
+        .goonButton{
+            background-repeat:no-repeat;
+            display: block;
+            position: absolute;
+            right: 30px;
+            bottom:30px;
+            /*background-image: url('../app/images/next_button_md.png');*/
+        }
+
+        .goonButton:active{
+            background-repeat:no-repeat;
+            display: inline-block;
+            position: absolute;
+            right: 30px;
+            bottom:30px;
+            /*background-image: url('../app/images/next_button_pressed_md.png');*/
+        }
+
+        .passage{
+            color: navajowhite;
+            width: 80%;
+            padding: 50px;
+            fon
+        }
+
+        .question{
+            color: navajowhite;
+            padding-left: 50px;
+        }
+
+        .answers{
+            color: navajowhite;
+            padding: 50px;
+            cursor: pointer;
+        }
+
+        .eachAnswer{
+            padding-top: 10px;
+        }
+
+
+        .selected-true {
+            display: inline-block;
+            background-color: yellow;
+            color: #000000;
+        }
+
+        .selected-false {
+            display: inline-block;
+            background-color: transparent;
+        }
+
+    </style>
+</div>
