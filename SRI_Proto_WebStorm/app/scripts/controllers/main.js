@@ -69,7 +69,7 @@ angular.module('SRIProtoWebStormApp')
             if ($scope.trialIndex < $scope.testItems.length - 1) {
                 $scope.trialIndex++;
                 $scope.getQuestionText();
-                $scope.$apply();
+               // $scope.$apply();
             } else {
                 $scope.endAssessment();
             }
@@ -77,7 +77,7 @@ angular.module('SRIProtoWebStormApp')
         };
 
         $scope.endAssessment = function(){
-            $location.path('goodbye');
+            $location.path('datavis');
         }
   });
 

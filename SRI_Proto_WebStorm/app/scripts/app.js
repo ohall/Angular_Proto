@@ -7,10 +7,16 @@ angular.module('SRIProtoWebStormApp', [])
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/goodbye',{
-            templateUrl:'views/goodbye.html',
-            controller: 'GoodByeCtrl'
-        })
+/*
+ .when('/goodbye',{
+ templateUrl:'views/goodbye.html',
+ controller: 'GoodByeCtrl'
+ })
+ */
+      .when('/datavis',{
+        templateUrl:'views/datavis.html',
+        controller: 'DataVisCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
