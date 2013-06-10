@@ -1,3 +1,36 @@
+/* ==========================================================================
+   SRI specific styles
+   ========================================================================== */
+
+
+html{
+    font-family:Verdana;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.headerImg{
+    top: 0px;
+    left: -10px;
+    width: 110%;
+    max-height: 144px;
+    position: absolute;
+}
+
+.footerImg{
+    left: -10px;
+    width: 110%;
+    max-height: 37px;
+    position: absolute;
+    bottom: 0;
+}
+
+
+
 /*
  * HTML5 Boilerplate
  *
@@ -9,6 +42,7 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+
 
 html,
 button,

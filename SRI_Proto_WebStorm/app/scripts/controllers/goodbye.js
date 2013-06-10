@@ -8,8 +8,8 @@
 angular.module('SRIProtoWebStormApp')
     .controller('GoodByeCtrl', function ($scope) {
 
-    });
 
+});
 
 function GoodByeCtrl($scope, $routeParams) {
     $scope.goodbyeID = $routeParams.goodbyeID;

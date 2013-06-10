@@ -63,7 +63,7 @@ angular.module('SRIProtoWebStormApp')
             }
         };
 
-        $scope.goButtonClicked = function(){
+        $scope.nextButtonClicked = function(){
             $scope.selectedIndex = -1;
 
             if ($scope.trialIndex < $scope.testItems.length - 1) {
@@ -77,7 +77,7 @@ angular.module('SRIProtoWebStormApp')
         };
 
         $scope.endAssessment = function(){
-            $location.path('datavis');
+            $location.path('goodbye');
         }
   });
 
