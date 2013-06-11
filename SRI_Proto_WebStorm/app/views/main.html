@@ -7,12 +7,16 @@
         {{questionText}}
     </div>
     <div class="answers">
-        <span ng-repeat="answer in testItems[trialIndex].answers"
+        <span ng-repeat="answer in answers"
                class="selected-{{$index==selectedIndex}}"
                ng-click="answerChosen($index)">{{answer}}
         </span>
     </div>
     <input type="button" ng-click="nextButtonClicked()" class="goonButton" ng-disabled="selectedIndex == -1" />
+
+    <p class="skipP" ng-show="skipsRemaining > 0"> Skips Remaining: {{skipsRemaining}}</p>
+    <input type="button" ng-click="skipButtonClicked()" class="skipButton"  />
+
 
 
     <style type="text/css">
@@ -33,28 +37,42 @@
 
         .goonButton{
             position: absolute;
-            right: 80px;
-            bottom:80px;
+            right: 260px;
+            bottom:100px;
             width: 58px;
             height: 41px;
             border-width: 0;
             background: url('../images/next_button.png') no-repeat;
         }
-
         .goonButton:hover{
-            position: absolute;
-            right: 80px;
-            bottom:80px;
-            border-width: 0;
             background: url('../images/next_button_pressed.png') no-repeat;
         }
-
         .goonButton:disabled{
-            position: absolute;
-            right: 80px;
-            bottom:80px;
-            border-width: 0;
             background: url('../images/next_button_disabled.png') no-repeat;
+        }
+
+
+        .skipButton{
+            position: absolute;
+            right: 10px;
+            bottom:-5px;
+            width: 58px;
+            height: 41px;
+            border-width: 0;
+            background: url('../images/skip_button.png') no-repeat;
+        }
+
+        .skipButton:hover{
+            background: url('../images/skip_button_pressed.png') no-repeat;
+        }
+
+        .skipP{
+            right: 100px;
+            bottom:-10px;
+            vertical-align: middle;
+            display:inline-block;
+            color: #000000;
+            position: absolute;
         }
 
         .passage{

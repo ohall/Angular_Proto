@@ -25,7 +25,7 @@ angular.module('SRIProtoWebStormApp')
         }
 
         $scope.quit = function(){
-
+            $location.path('goodbye');
         }
 
     });

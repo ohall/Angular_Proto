@@ -50,6 +50,10 @@ angular.module('SRIProtoWebStormApp')
 
         $scope.selectedIndex  = -1;
 
+        $scope.skipsRemaining  = 3;
+
+        $scope.answers = $scope.testItems[$scope.trialIndex].answers;
+
         $scope.answerChosen = function(index){
             $scope.selectedIndex = index;
             $scope.getQuestionText();
@@ -64,21 +68,41 @@ angular.module('SRIProtoWebStormApp')
         };
 
         $scope.nextButtonClicked = function(){
-            $scope.selectedIndex = -1;
+            $scope.advanceToNextTrialOrEnd();
+        };
 
+        $scope.skipButtonClicked = function(){
+            if($scope.skipsRemaining > 0){
+                $scope.skipsRemaining--;
+                $scope.advanceToNextTrialOrEnd();
+            }
+        }
+
+        $scope.advanceToNextTrialOrEnd = function(){
+            $scope.selectedIndex = -1;
             if ($scope.trialIndex < $scope.testItems.length - 1) {
                 $scope.trialIndex++;
+                $scope.addAnswers();
                 $scope.getQuestionText();
-               // $scope.$apply();
             } else {
                 $scope.endAssessment();
             }
+        }
 
-        };
+        $scope.addAnswers = function(){
+            $scope.answers = [];
+            var i = 0;
+            while($scope.answers.length < $scope.testItems[$scope.trialIndex].answers.length){
+                $scope.answers[i] = $scope.testItems[$scope.trialIndex].answers[i];
+                i++;
+            }
+
+        }
 
         $scope.endAssessment = function(){
             $location.path('goodbye');
         }
+
   });
 
 
