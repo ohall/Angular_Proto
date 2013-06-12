@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64402907-50ec-4b13-8854-013205ff6a41" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/sri_horizontal_rule.png" afterPath="$PROJECT_DIR$/app/images/sri_horizontal_rule.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/images/sri_test_complete.png" afterPath="$PROJECT_DIR$/app/images/sri_test_complete.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/app.js" afterPath="$PROJECT_DIR$/app/scripts/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/index.html" afterPath="$PROJECT_DIR$/app/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/karma.conf.js" afterPath="$PROJECT_DIR$/karma.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/login.html" afterPath="$PROJECT_DIR$/app/views/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/login.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/login.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/styles/main.css" afterPath="$PROJECT_DIR$/app/styles/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/main.html" afterPath="$PROJECT_DIR$/app/views/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/scripts/controllers/main.js" afterPath="$PROJECT_DIR$/app/scripts/controllers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/test/spec/controllers/main.js" afterPath="$PROJECT_DIR$/app/test/spec/controllers/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="64402907-50ec-4b13-8854-013205ff6a41" name="Default" comment="" />
     <ignored path="SRI_Proto_WebStorm.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/index.html" changelist="64402907-50ec-4b13-8854-013205ff6a41" time="1370985220956" ignored="false" />
@@ -57,22 +44,22 @@
     <favorites_list name="SRI_Proto_WebStorm" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5989086">
+    <splitter split-orientation="horizontal" split-proportion="0.47918">
       <split-first>
         <leaf>
-          <file leaf-file-name="main.html" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="main.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/main.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="36" column="44" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.47368422">
+                <state line="36" column="44" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-22.5">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="79" column="59" selection-start="3001" selection-end="3001" vertical-scroll-proportion="0.0">
+                <state line="7" column="62" selection-start="182" selection-end="182" vertical-scroll-proportion="0.060959794">
                   <folding />
                 </state>
               </provider>
@@ -169,12 +156,19 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="login.js" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="login.js" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="31" column="47" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
+                <state line="19" column="0" selection-start="424" selection-end="424" vertical-scroll-proportion="0.3635204">
                   <folding />
                 </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
+            <entry file="http://localhost:9000/components/angular/angular.js">
+              <provider selected="true" editor-type-id="httpFileEditor">
+                <state />
               </provider>
             </entry>
           </file>
@@ -187,10 +181,10 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="main.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="54" column="68" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.19325551">
+                <state line="54" column="68" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -229,7 +223,6 @@
         <option value="localhost:9000/scripts/controllers/datavis.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/datavis.js" />
         <option value="$PROJECT_DIR$/app/views/datavis.html" />
-        <option value="localhost:9000/components/angular/angular.js" />
         <option value="www.google-analytics.com/ga.js" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/goodbye.js" />
         <option value="$PROJECT_DIR$/app/test/spec/controllers/login.js" />
@@ -242,6 +235,7 @@
         <option value="$PROJECT_DIR$/app/styles/main.css" />
         <option value="$PROJECT_DIR$/app/scripts/controllers/main.js" />
         <option value="$PROJECT_DIR$/app/views/main.html" />
+        <option value="localhost:9000/components/angular/angular.js" />
       </list>
     </option>
   </component>
@@ -491,10 +485,11 @@
       <JSRemoteDebuggerConfigurationSettings>
         <option name="engineId" value="chrome" />
         <option name="fileUrl" value="http://localhost:9000/index.html" />
-        <mapping url="http://localhost:9000/index.html#/datavis" local-file="$PROJECT_DIR$/app/views/datavis.html" />
-        <mapping url="http://localhost:9000/index.html#" local-file="$PROJECT_DIR$/app/views/main.html" />
+        <mapping url="http://127.0.0.1:63342/index.html " local-file="$PROJECT_DIR$/app/index.html" />
         <mapping url="http://localhost:9000/index.html#" local-file="$PROJECT_DIR$/app/views/login.html" />
-        <mapping url="http://localhost:9000/index.html#" local-file="$PROJECT_DIR$/app/index.html" />
+        <mapping url="http://localhost:9000/scripts/controllers/login.js" local-file="$PROJECT_DIR$/app/scripts/controllers/login.js" />
+        <mapping url="http://localhost:9000/scripts/app.js" local-file="$PROJECT_DIR$/app/scripts/app.js" />
+        <mapping url="http://localhost:9000/scripts/controllers/main.js" local-file="$PROJECT_DIR$/app/scripts/controllers/main.js" />
       </JSRemoteDebuggerConfigurationSettings>
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
@@ -564,7 +559,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32924527" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21226415" sideWeight="0.49973586" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22556788" sideWeight="0.7877358" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17538299" sideWeight="0.7877358" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21226415" sideWeight="0.5002641" order="3" side_tool="true" content_ui="tabs" x="27" y="329" width="1893" height="441" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296355" sideWeight="0.84150946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10377359" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -637,89 +632,22 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/datavis.js</url>
-          <line>18</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/datavis.js</url>
-          <line>23</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/datavis.js</url>
-          <line>34</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/datavis.js</url>
-          <line>9</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/main.js</url>
-          <line>4</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/app.js</url>
-          <line>7</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/app.js</url>
-          <line>11</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/app.js</url>
-          <line>15</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/app.js</url>
-          <line>18</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/scripts/controllers/login.js</url>
-          <line>8</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/Gruntfile.js</url>
-          <line>62</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
-        <breakpoints-dialog />
+        <breakpoints-dialog>
+          <selected-grouping-rules>
+            <grouping-rule id="by-file" />
+          </selected-grouping-rules>
+        </breakpoints-dialog>
       </breakpoints-dialog>
       <default-breakpoints>
-        <breakpoint log-message="true" type="javascript-exception">
+        <breakpoint enabled="true" log-message="true" type="javascript-exception">
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="30" />
+      <option name="time" value="35" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/test/runner.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="47" selection-start="721" selection-end="721" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/styles/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -746,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="59" selection-start="3001" selection-end="3001" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/test/spec/controllers/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="44" selection-start="1571" selection-end="1571" vertical-scroll-proportion="0.90688777">
@@ -770,13 +691,6 @@
     <entry file="file://$PROJECT_DIR$/karma.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="66" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="68" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.19325551">
           <folding />
         </state>
       </provider>
@@ -805,9 +719,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="68" selection-start="3540" selection-end="3540" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="44" selection-start="1064" selection-end="1064" vertical-scroll-proportion="0.47368422">
+        <state line="36" column="44" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-22.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="http://localhost:9000/components/angular/angular.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/controllers/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="0" selection-start="424" selection-end="424" vertical-scroll-proportion="0.3635204">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/scripts/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="62" selection-start="182" selection-end="182" vertical-scroll-proportion="0.060959794">
           <folding />
         </state>
       </provider>
