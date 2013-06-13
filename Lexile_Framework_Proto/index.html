@@ -1,38 +1,246 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="LexileFrameWorkStudent">
 <head>
     <meta charset="utf-8">
-    <title>Twitter Bootstrap Basic pills Based Navigation Example</title>
-    <meta name="description" content="Twitter Bootstrap Basic pills Based Navigation Example">
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>stuff</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
 </head>
-<body>
-<div class="">
-    <div class="row">
-        <div class="span8">
-            <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Tutorials</a></li>
-                <li><a href="#">Practice Editor </a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-</body>
+<body ng-controller="PageController" style="padding: 10px 10px 10px 10px" >
+<h2>{{studentName}}</h2>
+<h4>{{schoolName}}</h4>
+<div class="container" style="padding-top: 30px" >
 
+    <div class="row">
+        <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#readingList"  data-toggle="tab">Get Reading List</a></li>
+                <li class=""><a href="#srcQuiz"      data-toggle="tab">Take a quiz</a></li>
+                <li class=""><a href="#results"      data-toggle="tab">My results</a></li>
+                <li class=""><a href="#interests"    data-toggle="tab">Choose Reading Interests</a></li>
+                <li class=""><a href="#sriTest"      data-toggle="tab">Take the test</a></li>
+            </ul>
+
+            <!--READING LIST TAB-->
+            <div ng-controller="ReadingListTab" class="tab-content">
+                <div class="tab-pane active" id="readingList">
+                    <p style="max-width: 25%">My Lexile: {{lexile}}</p>
+                    <p>Next test date: {{nextTestDate}} </p>
+                    <p>Welcome! You have read {{booksRead}} books, {{wordsRead}} words
+                        and reviewed {{booksReviewed}} books</p>
+                    <p>If you like <b ng-repeat="interest in interests">{{interest}} </b>  You might like these books:</p>
+                    <span ng-repeat="book in books" class="bookRecItem">
+                        <img class="cover" src="images/{{book.cover}}.jpg">
+                        <div class="bookRecTextArea" >
+                            <p class="titleLabel">{{book.title}}</p>
+                            <p class="authorLabel">{{book.author}}</p>
+                            <p class="descriptionLabel" >{{book.description}}</p>
+                            <p class="lexLabel">Lexile: {{book.lexile}}</p>
+                            <p class="interestLabel">{{book.interest}}</p>
+                        </div>
+                        <input class="btn-large" type="button"
+                               value="Take Quiz!" ng-click="quizButtonClicked()">
+                    </span>
+                </div>
+
+                <!--QUIZ TAB-->
+                <div class="tab-pane" id="srcQuiz">
+                    <form>
+                        <input type="text" class="search-query" placeholder="Title..." ng-model="{{title}}" />
+                        <input type="text" class="search-query" placeholder="Author..." ng-model="{{author}}" />
+                        <p><input type="checkbox"  ng-model="{{isQuizOnly}}"/>Search quizzes only</p>
+                        <p><input type="checkbox" class="checkbox" ng-model="{{isInLibraryOnly}}"/>Search in library only</p>
+                        <p><input type="checkbox" class="checkbox" ng-model="{{isInMyLexileOnly}}"/>Search in my Lexile range</p>
+                    </form>
+                </div>
+
+                <div class="tab-pane" id="results"><p>MY RESULTS</p></div>
+
+                <div class="tab-pane" id="interests"><p>CHOOSE READING INTERESTS</p></div>
+
+                <div class="tab-pane" id="sriTest"><p>TAKE A TEST</p></div>
+
+
+            </div><!--end tab-content-->
+
+        </div><!--end tabs-left-->
+    </div><!--end row-->
+</div><!--end container-->
+
+<!-- the neccessary javascript -->
+<script src="components/angular/angular.js"></script>
+<script src="components/angular-resource/angular-resource.js"></script>
+<script src="components/angular-cookies/angular-cookies.js"></script>
+<script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+<!--For tests-->
+<script src="components/angular-mocks/angular-mocks.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
 <style>
 
-    li{
+    .bookRecItem{
+        display: inline-block;
+        margin-bottom: 10px;
         padding: 10px;
+        background: cornflowerblue;
+        border-radius: 5px;
+        box-shadow: 5px 5px 1px #888888;
+        width: 90%;
+    }
 
+    .bookRecItem .btn-large{
+        visibility: hidden;
     }
-    ul{
-        max-width: 150px;
+
+    .bookRecItem:hover .btn-large{
+       visibility: visible;
     }
+
+    .bookRecTextArea{
+        padding: 10px;
+        width: 60%;
+        height: 100%;
+        float: left;
+    }
+
+    .titleLabel{
+    }
+
+    .authorLabel{
+    }
+
+    .cover{
+        float: left;
+        padding: 5px;
+    }
+
+    .descriptionLabel{
+    }
+
+    .btn-large{
+       float: right;
+    }
+
+    .lexLabel{
+    }
+
+    .interestLabel{
+    }
+
+
 
 
 </style>
+<script>
+     var app = angular.module('LexileFrameWorkStudent',[]);
+
+     app.service('sharedProperties', function() {
+         var studentName = 'Jacoby Ellsbury';
+         var schoolName = 'Fenway Elementary School';
+
+         return {
+             getStudentName: function() {
+                 return studentName;
+             },
+             getSchoolName: function() {
+                 return schoolName;
+             }
+         }
+     });
+
+     app.controller('PageController', function($scope, sharedProperties){
+             $scope.studentName = sharedProperties.getStudentName();
+             $scope.schoolName =  sharedProperties.getSchoolName();
+     })
+
+
+
+     app.controller('QuizTab', function($scope){
+            $scope.title            = "";
+            $scope.author           = "";
+            $scope.isQuizOnly       = false;
+            $scope.isInLibraryOnly  = false;
+            $scope.isInMyLexileOnly = false;
+            $scope.catagories       = [ "Action & Adventure",
+                                        "Animals & Pets",
+                                        "Famous People",
+                                         "All Time Favorite Stories (All Time Favourite Stories)",
+                                        "Celebrations","Friends, Family & Growing Up Food & Drink",
+                                        "Around the World","In the Past","Funny Stories",
+                                        "Caring & Sharing","Everything Else",
+                                        "Music & Art","Mystery",
+                                        "Folktales & Legends",
+                                        "Nature & the Earth",
+                                        "How Things Work",
+                                        "Science Fiction & Fantasy Space",
+                                        "Fun & Games"
+                                       ]
+     })
+
+
+
+
+
+     app.controller('ReadingListTab',function($scope){
+        $scope.lexile = 350;
+        $scope.nextTestDate = new Date("May 14, 2013").toDateString();
+        $scope.booksRead = 3;
+        $scope.wordsRead = 1200;
+        $scope.booksReviewed = 4;
+
+        $scope.interests = ["Animals","Ninjas","Travel"];
+
+        $scope.quizButtonClicked = function(){
+            //do some stuff
+
+        }
+
+
+
+        $scope.books = [
+             {
+                 title:"Little House in the Big Woods",
+                 author:"Wilder, Laura Ingalls",
+                 description:"The book tells about the months the Ingalls " +
+                         "family spent on the prairie of Kansas, around the town of " +
+                         "Independence, Kansas.",
+                 lexile:200,
+                 cover:"little_house",
+                 interest:"Animals",
+
+             },
+             {
+                 title:"Snow Crash",
+                 author:"Stephenson, Neal",
+                 description:"Master swordsman Hiro Protagonist delivers pizzas, stumbles onto global mind control " +
+                         "conspiracy, excellence ensues",
+                 lexile:300,
+                 cover:"snow_crash",
+                 interest:"Ninjas",
+             },
+             {
+                 title:"The Road",
+                 author:"McCarthy, Cormac",
+                 description:"Heartwarming tale of a father and son road trip.  ",
+                 lexile:100,
+                 cover:"the_road",
+                 interest:"Travel",
+             }
+         ];
+     })
+
+
+
+
+
+</script>
+
+
+
+
+
+
 
 </html>
