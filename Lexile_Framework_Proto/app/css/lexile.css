@@ -1,0 +1,187 @@
+li{
+    list-style: none;
+}
+
+.resultsHeader{
+    height: 40px;
+}
+
+.resultsHeader h4{
+    float: left;
+    padding-right: 20px;
+}
+
+.resultsTable td{
+    padding: 5px;
+}
+
+/*Take a Quiz Tab*/
+
+.commentBox{
+
+}
+
+.passedCheck{
+    position: absolute;
+    top: 100px;
+    right: 100px;
+}
+
+.passedDiv li{
+    padding: 10px;
+}
+
+.passedDiv input{
+    width: 100%;
+}
+
+.passedDiv{
+    float: left;
+}
+
+.failedDiv{
+    float: left;
+}
+
+.failedDiv li{
+    padding: 10px;
+}
+
+.bookRecItem-narrow{
+    float: left;
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: cornflowerblue;
+    border-radius: 5px;
+    box-shadow: 5px 5px 1px #888888;
+
+    width: 60%;
+}
+
+.resultsDiv-true{
+    display:inline-block;
+    opacity:1.0;
+}
+
+.resultsDiv-false{
+    display:none;
+    opacity:0.0;
+    filter:alpha(opacity=0);
+}
+
+.searchingForm-true{
+    display:inline-block;
+    opacity:1.0;
+}
+
+.searchingForm-false{
+    display:none;
+    opacity:0.0;
+    filter:alpha(opacity=0);
+}
+
+
+.quizselectionDiv-false{
+    /*starting out invisible*/
+    display: none;
+    opacity:0.0;
+    filter:alpha(opacity=0);
+}
+
+.quizselectionDiv-true{
+    display:inline-block;
+    opacity:1.0;
+
+}
+
+.searchlist{
+    overflow: hidden;
+    width: 400px;
+    float: left;
+}
+
+.searchlist li{
+    min-width: 100px;
+    max-width: 200px;
+    border-radius: 5px;
+    border-radius: 5px;
+    display:block;
+    padding: 10px;
+
+}
+
+.selected-true {
+    background-color: green;
+    color: #ffffff;
+}
+
+.selected-false {
+    background-color: transparent;
+}
+
+.selected-false:hover {
+    opacity: 0.8;
+    background-color: #ffff00;
+    color: #000000;
+}
+
+
+.checkboxes{
+    float: left;
+    padding 10px;
+    ma
+}
+
+.checkboxes ul{
+    padding:5px;
+    float:left;
+    margin: 0px;
+}
+
+.checkboxes li{
+    list-style: none;
+    padding: 10px;
+}
+
+
+
+
+
+/*Reading List Tab*/
+
+.bookRecItem{
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: cornflowerblue;
+    border-radius: 5px;
+    box-shadow: 5px 5px 1px #888888;
+    width: 90%;
+}
+
+.bookRecItem .btn-large{
+    visibility: hidden;
+}
+
+.bookRecItem:hover .btn-large{
+    visibility: visible;
+}
+
+.bookRecTextArea{
+    padding: 10px;
+    width: 60%;
+    height: 100%;
+    float: left;
+}
+
+.cover{
+    float: left;
+    padding: 5px;
+}
+
+.btn-large{
+    float: right;
+}
+
+

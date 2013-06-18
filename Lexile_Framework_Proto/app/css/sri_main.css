@@ -1,0 +1,97 @@
+body{
+    background-color: #2175c9;
+    /*background-image:url('/images/sri_welcome_lines.png');*/
+    /*background-repeat:no-repeat;*/
+    /*background-size: 100%;*/
+}
+
+input{
+    cursor: pointer;
+}
+.evalDiv{
+
+}
+
+.goonButton{
+    position: absolute;
+    right: 260px;
+    bottom:100px;
+    width: 58px;
+    height: 41px;
+    border-width: 0;
+    background: url('../images/next_button.png') no-repeat;
+}
+.goonButton:hover{
+    background: url('../images/next_button_pressed.png') no-repeat;
+}
+.goonButton:disabled{
+    background: url('../images/next_button_disabled.png') no-repeat;
+}
+
+
+.skipButton{
+    position: absolute;
+    right: 10px;
+    bottom: 20px;
+    width: 58px;
+    height: 41px;
+    border-width: 0;
+    background: url('../images/skip_button.png') no-repeat;
+}
+
+.skipButton:hover{
+    background: url('../images/skip_button_pressed.png') no-repeat;
+}
+
+.skipP{
+    right: 100px;
+    bottom: 15px;
+    vertical-align: middle;
+    display:inline-block;
+    color: #000000;
+    position: absolute;
+}
+
+.passage{
+    color: navajowhite;
+    width: 80%;
+    padding: 50px;
+}
+
+.question{
+    color: navajowhite;
+    padding-left: 50px;
+}
+
+.answers{
+    display: inline-block;
+    color: navajowhite;
+    padding: 50px;
+    cursor: pointer;
+    width: 100px;
+}
+
+.selected-true {
+    border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    background-color: green;
+    color: #000000;
+}
+
+.selected-false {
+    padding: 10px;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.selected-false:hover {
+    border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    opacity: 0.8;
+    background-color: #ffff00;
+    color: #000000;
+}

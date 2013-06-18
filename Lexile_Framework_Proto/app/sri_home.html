@@ -1,0 +1,48 @@
+<!doctype html >
+  <head>
+    <meta charset="utf-8">
+    <title>SRI</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="css/sri_main.css" rel="stylesheet" media="screen">
+
+</head>
+  <body ng-app="SRIProtoWebStormApp">
+
+
+
+  <!--<img class="headerImg" src="../images/sri_welcome_header.png"></img>-->
+  <!--<img class="footerImg" src="../images/SRI_footer.png"></img>-->
+  <div ng-view />
+       <!--class="example-animate-container"-->
+       <!--ng-animate="{enter: 'example-enter', leave: 'example-leave'}"/>-->
+
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-cookies/angular-cookies.js"></script>
+    <script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+   <!--For tests-->
+    <script src="components/angular-mocks/angular-mocks.js"></script>
+
+
+  <!-- build:js scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/goodbye.js"></script>
+    <script src="scripts/controllers/login.js"></script>
+
+
+
+    <!-- endbuild -->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+      var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+      (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+      g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+  </body>
+</html>

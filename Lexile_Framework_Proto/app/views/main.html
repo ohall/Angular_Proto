@@ -1,0 +1,23 @@
+<div class="evalDiv" ng-controller="MainCtrl" >
+    <img src="images/sri_welcome_logo.png">
+    <div class="passage">
+        {{testItems[trialIndex].passage}}
+    </div>
+    <div class="question">
+        {{questionText}}
+    </div>
+    <div class="answers">
+        <span ng-repeat="answer in answers"
+               class="selected-{{$index==selectedIndex}}"
+               ng-click="answerChosen($index)">{{answer}}
+        </span>
+    </div>
+    <input type="button" ng-click="nextButtonClicked()" class="goonButton" ng-disabled="selectedIndex == -1" />
+
+    <p class="skipP" ng-show="skipsRemaining > 0"> Skips Remaining: {{skipsRemaining}}</p>
+    <input type="button" ng-click="skipButtonClicked()" class="skipButton"  />
+
+
+
+
+</div>
