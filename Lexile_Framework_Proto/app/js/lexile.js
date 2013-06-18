@@ -1,24 +1,34 @@
 var app = angular.module('LexileFrameWorkStudent',[]);
 
 app.controller('PageController', function($scope, sharedProperties){
+    /**
+     * Get shared Student object
+     * @type {{name: string, school: string, lexile: number, books: number, words: number}}
+     */
     $scope.student = sharedProperties.getStudent();
 })
 
 
-/**
- * Controller for Results Tab
- */
 app.controller('ResultsTab',function($scope, sharedProperties){
+
+    /**
+     * Get shared Array of books
+     * @type {Array}
+     */
     $scope.books = sharedProperties.getBooks();
+
+    /**
+     * Get shared Student object
+     * @type {{name: string, school: string, lexile: number, books: number, words: number}}
+     */
     $scope.student = sharedProperties.getStudent();
 
 
 })
 
-/**
- * Controller for Quiz Tab
- */
+
 app.controller('QuizTab', function($scope, sharedProperties){
+
     $scope.NUM_SELECTABLE_CATAGORIES = 3;
     $scope.title            = "";
     $scope.author           = "";
@@ -28,18 +38,41 @@ app.controller('QuizTab', function($scope, sharedProperties){
     $scope.catagories       = sharedProperties.getCatagories();
     $scope.books            = sharedProperties.getBooks();
 
+    /**
+     * Used to toggle visibility of results div
+     * @type {boolean}
+     */
     $scope.resultsDivVisible   = false;
+
+    /**
+     * Used to toggle visibility of quiz div
+     * @type {boolean}
+     */
     $scope.quizDivVisible      = false;
+
+    /**
+     * Used to set visibility of search div
+     * @type {boolean}
+     */
     $scope.searchDivVisible    = true;
 
+    /**
+     * Which div we see after a quiz is determined by
+     * whether we pass it or not
+     * @type {boolean}
+     */
     $scope.quizPassed = true;
 
+    /**
+     * Mocked quiz results
+     * @type {{numQuestions: number, numCorrect: number, numAttempts: number, studentComment: string}}
+     */
     $scope.quizResults = {
         numQuestions:10,
         numCorrect:8,
         numAttempts:1,
         studentComment:""
-    };
+    };//TODO: get actual quiz results
 
     /**
      * Calculate percent quiz correct
@@ -49,6 +82,11 @@ app.controller('QuizTab', function($scope, sharedProperties){
         return ($scope.quizResults.numCorrect / $scope.quizResults.numQuestions)*100;
     }
 
+    /**
+     * Array of NUM_SELECTABLE_CATAGORIES length
+     * which ar our selected interests for searching
+     * @type {Array}
+     */
     $scope.selectedIndices = [];
 
     /**
@@ -76,20 +114,26 @@ app.controller('QuizTab', function($scope, sharedProperties){
 
 
     /**
-     * Search button click in Quiz Tab fades out our search form and replaces it
-     * with the selection screen from where we'll be selecting a quiz
+     * Search button click
      */
     $scope.searchButtonClick = function(){
         $scope.quizDivVisible = true;
         $scope.searchDivVisible = false;
+        $scope.resultsDivVisible = false;
     }
 
+    /**
+     * Search button click
+     */
     $scope.quizButtonClicked = function(){
         $scope.quizDivVisible = false;
         $scope.searchDivVisible = false;
         $scope.resultsDivVisible = true;
     }
 
+    /**
+     * Review button click
+     */
     $scope.reviewButtonClicked = function(){
         $scope.quizDivVisible = false;
         $scope.searchDivVisible = true;
@@ -99,37 +143,70 @@ app.controller('QuizTab', function($scope, sharedProperties){
 })
 
 
-/**
- * Controller for Reading List Tab
- */
 app.controller('ReadingListTab',function($scope, sharedProperties){
-    $scope.lexile = 350;
-    $scope.nextTestDate = new Date("May 14, 2013").toDateString();
-    $scope.booksRead = 3;
-    $scope.wordsRead = 1200;
-    $scope.booksReviewed = 4;
 
-    $scope.interests = ["Animals","Ninjas","Travel"];
+    /**
+     * Array of books grabbed from shared service
+     * @type {Array}
+     */
+    $scope.books = sharedProperties.getBooks();
 
+    /**
+     * Student Lexile score
+     * @type {number}
+     */
+    $scope.lexile = 350;//TODO: get data from server
+
+    /**
+     * Date when next SRI test will be available
+     * @type {string}
+     */
+    $scope.nextTestDate = new Date("May 14, 2013").toDateString();//TODO: get data from server
+
+    /**
+     * Number of books read by student
+     * @type {number}
+     */
+    $scope.booksRead = 3;//TODO: get data from server
+
+    /**
+     * Number of words read by student
+     * @type {number}
+     */
+    $scope.wordsRead = 1200;//TODO: get data from server
+
+    /**
+     * Number of books reviewed by student
+     * @type {number}
+     */
+    $scope.booksReviewed = 4;//TODO: get data from server
+
+
+    /**
+     * Array of student's interests
+     * @type {Array}
+     */
+    $scope.interests = ["Animals","Ninjas","Travel"];//TODO: get data from server
+
+    /**
+     * ngClick of Quiz button
+     */
     $scope.quizButtonClicked = function(){
         //do some stuff
 
     }
 
-    $scope.books = sharedProperties.getBooks();
+
 })
 
 
 
-
-
-
-
-/**
- * Service for sharing properties between controllers
- */
 app.service('sharedProperties', function() {
 
+    /**
+     * Mock student data
+     * @type {{name: string, school: string, lexile: number, books: number, words: number}}
+     */
     var student = {
         name: 'Jacoby Ellsbury',
         school:'Fenway Elementary School',
@@ -138,6 +215,10 @@ app.service('sharedProperties', function() {
         words:1200
     }
 
+    /**
+     * Array of mock books data
+     * @type {Array}
+     */
     var books = [
         {
             title:"Little House in the Big Woods",
@@ -184,6 +265,10 @@ app.service('sharedProperties', function() {
         }
     ];
 
+    /**
+     * Array of mock catagories
+     * @type {Array}
+     */
     var catagories  = [ "Action & Adventure",
         "Animals & Pets",
         "Famous People",

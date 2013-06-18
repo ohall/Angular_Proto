@@ -38,7 +38,7 @@
                     <p>If you like <b ng-repeat="interest in interests">{{interest}} </b>
                         You might like these books:</p>
                     <span ng-repeat="book in books" class="bookRecItem">
-                        <img class="cover" src="images/{{book.cover}}.jpg">
+                        <img class="cover" ng-src="images/{{book.cover}}.jpg">
                         <div class="bookRecTextArea" >
                             <ul>
                                 <li><p>{{book.title}}</p></li>
@@ -102,7 +102,7 @@
 
                    <div class="quizselectionDiv-{{quizDivVisible}}">
                        <span ng-repeat="book in books" class="bookRecItem">
-                             <img class="cover" src="images/{{book.cover}}.jpg">
+                             <img class="cover" ng-src="images/{{book.cover}}.jpg">
                              <div class="bookRecTextArea" >
                                  <ul>
                                     <li><p>{{book.title}}</p></li>
@@ -117,7 +117,7 @@
 
                    <div class="resultsDiv-{{resultsDivVisible}}">
                        <span class="bookRecItem-narrow">
-                             <img class="cover" src="images/{{books[0].cover}}.jpg">
+                             <img class="cover" ng-src="images/{{books[0].cover}}.jpg">
                            <ul>
                                 <li><p>{{books[0].title}}</p></li>
                                 <li><p>{{books[0].author}}</p></li>

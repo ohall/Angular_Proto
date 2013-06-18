@@ -2,7 +2,17 @@
 
 angular.module('SRIProtoWebStormApp')
   .controller('MainCtrl', function ($scope,$location) {
+
+        /**
+         * Index of trial we're on
+         * @type {number}
+         */
         $scope.trialIndex = 0;
+
+        /**
+         * Hard coded mock data array of test items
+         * @type {Array}
+         */
         $scope.testItems = [
             { 	practice:false,
                 contentID:'sri.test.instance.6659',
@@ -47,18 +57,38 @@ angular.module('SRIProtoWebStormApp')
 
         $scope.questionText = $scope.testItems[$scope.trialIndex].question;
 
-
+        /**
+         * Index of answer chosen by student
+         * Defaults to -1 for none selected
+         * @type {number}
+         */
         $scope.selectedIndex  = -1;
 
+        /**
+         * Number of questions remaining which student can skip.
+         * Will be defined by server in the future.
+         * @type {number}
+         */
         $scope.skipsRemaining  = 3;
 
+        /**
+         * Array of answers available to be selected
+         * @type {*}
+         */
         $scope.answers = $scope.testItems[$scope.trialIndex].answers;
 
+        /**
+         * ngClick handler for answers, takes index
+         * @param index of the answer selected
+         */
         $scope.answerChosen = function(index){
             $scope.selectedIndex = index;
             $scope.getQuestionText();
         };
 
+        /**
+         * Update the model with new question text
+         */
         $scope.getQuestionText = function(){
             if($scope.selectedIndex > -1){
                 $scope.questionText = $scope.testItems[$scope.trialIndex].question.replace('________',$scope.testItems[$scope.trialIndex].answers[$scope.selectedIndex]);
@@ -67,10 +97,17 @@ angular.module('SRIProtoWebStormApp')
             }
         };
 
+        /**
+         * nextButton enabled on answer selection, if clicked, advance
+         */
         $scope.nextButtonClicked = function(){
             $scope.advanceToNextTrialOrEnd();
         };
 
+
+        /**
+         * If skips remaining, decrement skipsRemaining and advance
+         */
         $scope.skipButtonClicked = function(){
             if($scope.skipsRemaining > 0){
                 $scope.skipsRemaining--;
@@ -78,6 +115,10 @@ angular.module('SRIProtoWebStormApp')
             }
         }
 
+        /**
+         * If trials remain, increment trail index and update model accordingly
+         * Else end
+         */
         $scope.advanceToNextTrialOrEnd = function(){
             $scope.selectedIndex = -1;
             if ($scope.trialIndex < $scope.testItems.length - 1) {
@@ -89,6 +130,9 @@ angular.module('SRIProtoWebStormApp')
             }
         }
 
+        /**
+         * update answers in model
+         */
         $scope.addAnswers = function(){
             $scope.answers = [];
             var i = 0;
@@ -99,6 +143,9 @@ angular.module('SRIProtoWebStormApp')
 
         }
 
+        /**
+         * update answers in model
+         */
         $scope.endAssessment = function(){
             $location.path('goodbye');
         }
