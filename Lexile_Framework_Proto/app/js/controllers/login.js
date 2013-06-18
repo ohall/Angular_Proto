@@ -5,23 +5,23 @@
  * Time: 11:36 AM
  * To change this template use File | Settings | File Templates.
  */
-'use strict';
+"use strict";
 
 angular.module('SRIProtoWebStormApp')
-    .controller('LoginCtrl', function ($scope,$routeParams,$location) {
+    .controller('LoginCtrl', function ($scope, $routeParams, $location) {
         $scope.loginID = $routeParams.loginID;
 
         /**
          * Student user name
          * @type {string}
          */
-        $scope.userName='';
+        $scope.userName = '';
 
         /**
          * Student password
          * @type {string}
          */
-        $scope.password='';
+        $scope.password = '';
 
 
         /**
@@ -30,18 +30,18 @@ angular.module('SRIProtoWebStormApp')
          * Else proceed to main assessment
          */
         $scope.ok = function(){
-            if($scope.userName == '' || $scope.password == ''){
+            if ($scope.userName === '' || $scope.password === '') {
                 alert("Username and Password required");
-            }else{
+            } else {
                 $location.path('main');
             }
-        }
+        };
 
         /**
          * Navigate to goodbye view on quit
          */
         $scope.quit = function(){
             $location.path('goodbye');
-        }
+        };
 
     });

@@ -1,3 +1,5 @@
+"use strict";
+
 var app = angular.module('LexileFrameWorkStudent',[]);
 
 app.controller('PageController', function($scope, sharedProperties){
@@ -6,7 +8,7 @@ app.controller('PageController', function($scope, sharedProperties){
      * @type {{name: string, school: string, lexile: number, books: number, words: number}}
      */
     $scope.student = sharedProperties.getStudent();
-})
+});
 
 
 app.controller('ResultsTab',function($scope, sharedProperties){
@@ -24,7 +26,7 @@ app.controller('ResultsTab',function($scope, sharedProperties){
     $scope.student = sharedProperties.getStudent();
 
 
-})
+});
 
 
 app.controller('QuizTab', function($scope, sharedProperties){
@@ -80,7 +82,7 @@ app.controller('QuizTab', function($scope, sharedProperties){
      */
     $scope.percentCorrect = function(){
         return ($scope.quizResults.numCorrect / $scope.quizResults.numQuestions)*100;
-    }
+    };
 
     /**
      * Array of NUM_SELECTABLE_CATAGORIES length
@@ -100,8 +102,8 @@ app.controller('QuizTab', function($scope, sharedProperties){
         if($scope.selectedIndices.length >= $scope.NUM_SELECTABLE_CATAGORIES){
             $scope.selectedIndices.shift();
         }
-        $scope.selectedIndices.push(pIndex)
-    }
+        $scope.selectedIndices.push(pIndex);
+    };
 
     /**
      * Returns true if param index is in array of those selected
@@ -109,8 +111,8 @@ app.controller('QuizTab', function($scope, sharedProperties){
      * @returns {boolean}
      */
     $scope.isSelectedIndex = function(pIndex){
-        return ( $.inArray(pIndex, $scope.selectedIndices) != -1 );
-    }
+        return ( $.inArray(pIndex, $scope.selectedIndices) !== -1 );
+    };
 
 
     /**
@@ -120,7 +122,7 @@ app.controller('QuizTab', function($scope, sharedProperties){
         $scope.quizDivVisible = true;
         $scope.searchDivVisible = false;
         $scope.resultsDivVisible = false;
-    }
+    };
 
     /**
      * Search button click
@@ -129,7 +131,7 @@ app.controller('QuizTab', function($scope, sharedProperties){
         $scope.quizDivVisible = false;
         $scope.searchDivVisible = false;
         $scope.resultsDivVisible = true;
-    }
+    };
 
     /**
      * Review button click
@@ -138,9 +140,9 @@ app.controller('QuizTab', function($scope, sharedProperties){
         $scope.quizDivVisible = false;
         $scope.searchDivVisible = true;
         $scope.resultsDivVisible = false;
-    }
+    };
 
-})
+});
 
 
 app.controller('ReadingListTab',function($scope, sharedProperties){
@@ -194,10 +196,10 @@ app.controller('ReadingListTab',function($scope, sharedProperties){
     $scope.quizButtonClicked = function(){
         //do some stuff
 
-    }
+    };
 
 
-})
+});
 
 
 
@@ -213,7 +215,7 @@ app.service('sharedProperties', function() {
         lexile:350,
         books:11,
         words:1200
-    }
+    };
 
     /**
      * Array of mock books data
@@ -298,5 +300,5 @@ app.service('sharedProperties', function() {
         getCatagories: function() {
             return catagories;
         }
-    }
+    };
 });

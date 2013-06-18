@@ -14,7 +14,7 @@ angular.module('SRIProtoWebStormApp')
          * @type {Array}
          */
         $scope.testItems = [
-            { 	practice:false,
+            {   practice:false,
                 contentID:'sri.test.instance.6659',
                 passage: "One of the reasons racing was so appealing was the excitement. Jeff, John, and Carol " +
                     "were spending their spare time amid the lights and sights, the sounds and the smells of " +
@@ -25,7 +25,7 @@ angular.module('SRIProtoWebStormApp')
                 question: 'They found racing ________.',
                 answers:['scary','fascinating','unethical','profitable']
             },
-            { 	practice:false,
+            {   practice:false,
                 contentID:'sri.test.instance.6660',
                 passage: "The Farm had about one hundred acres. Lying in the gently hilly country that stretches" +
                     " southwest of Boston, bordered by primeval forests of pine and dotted with elms and " +
@@ -38,7 +38,7 @@ angular.module('SRIProtoWebStormApp')
                 question: 'The Farm was ________.',
                 answers:['rundown','commonplace','gorgeous','productive']
             },
-            { 	practice:false,
+            {   practice:false,
                 contentID:'sri.test.instance.6661',
                 passage:"Although he was now 40 years old and an established lawyer and politician, " +
                     "Coolidge was just as careful with money as he had ever been. The Coolidge family" +
@@ -113,7 +113,7 @@ angular.module('SRIProtoWebStormApp')
                 $scope.skipsRemaining--;
                 $scope.advanceToNextTrialOrEnd();
             }
-        }
+        };
 
         /**
          * If trials remain, increment trail index and update model accordingly
@@ -128,7 +128,7 @@ angular.module('SRIProtoWebStormApp')
             } else {
                 $scope.endAssessment();
             }
-        }
+        };
 
         /**
          * update answers in model
@@ -141,14 +141,14 @@ angular.module('SRIProtoWebStormApp')
                 i++;
             }
 
-        }
+        };
 
         /**
          * update answers in model
          */
         $scope.endAssessment = function(){
             $location.path('goodbye');
-        }
+        };
 
   });
 
