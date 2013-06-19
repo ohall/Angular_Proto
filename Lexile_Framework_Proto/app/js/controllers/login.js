@@ -7,7 +7,7 @@
  */
 "use strict";
 
-angular.module('SRIProtoWebStormApp')
+angular.module('StudentAssessmentApp')
     .controller('LoginCtrl', function ($scope, $routeParams, $location) {
         $scope.loginID = $routeParams.loginID;
 
@@ -33,7 +33,7 @@ angular.module('SRIProtoWebStormApp')
             if ($scope.userName === '' || $scope.password === '') {
                 alert("Username and Password required");
             } else {
-                $location.path('main');
+                $location.path('trials');
             }
         };
 

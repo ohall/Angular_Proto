@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('SRIProtoWebStormApp', []);
+var app = angular.module('StudentAssessmentApp', []);
 
 app.config(function ($routeProvider) {
     $routeProvider
@@ -8,9 +8,9 @@ app.config(function ($routeProvider) {
       templateUrl:'views/login.html',
       controller: 'GoodByeCtrl'
        })
-      .when('/main', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+      .when('/trials', {
+        templateUrl: 'views/sriTrials.html',
+        controller: 'TrialCtrl'
       })
       .when('/goodbye',{
       templateUrl:'views/goodbye.html',

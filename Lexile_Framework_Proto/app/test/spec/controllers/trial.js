@@ -12,12 +12,12 @@ describe('MainCtrl', function() {
         }));
 
 
-    it('should create "testItems" with length greater than "2"',
+    it('should create "trials" with length greater than "2"',
         inject(function($rootScope, $controller) {
             var scope = $rootScope.$new(),
                 ctrl = $controller("MainCtrl", {$scope: scope });
 
-            expect(scope.testItems.length).toBeGreaterThan(2);
+            expect(scope.trials.length).toBeGreaterThan(2);
         }));
 
 
@@ -30,13 +30,13 @@ describe('MainCtrl', function() {
         }));
 
 
-    it('should create "questionText" equal to "testItems[trialIndex].question"',
+    it('should create "questionText" equal to "trials[trialIndex].question"',
         inject(function($rootScope, $controller) {
             var scope = $rootScope.$new(),
                 ctrl = $controller("MainCtrl", {$scope: scope });
 
-            expect(scope.questionText).toBe(scope.testItems[scope.trialIndex].question);
-            console.log(scope.testItems[scope.trialIndex].question);
+            expect(scope.questionText).toBe(scope.trials[scope.trialIndex].question);
+            console.log(scope.trials[scope.trialIndex].question);
         }));
 
 
@@ -48,6 +48,6 @@ describe('MainCtrl', function() {
         $controller('MainCtrl', {
             $scope: this.scope
         });
-        console.log("Unit Testing main.js");
+        console.log("Unit Testing trials.js");
     }));
 });

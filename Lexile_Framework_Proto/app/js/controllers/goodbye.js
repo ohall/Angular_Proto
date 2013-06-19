@@ -5,7 +5,7 @@
  * Time: 6:12 PM
  * To change this template use File | Settings | File Templates.
  */
-angular.module('SRIProtoWebStormApp')
+angular.module('StudentAssessmentApp')
     .controller('GoodByeCtrl', function ($scope) {
 
 

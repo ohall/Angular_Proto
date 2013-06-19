@@ -1,31 +1,4 @@
-body{
-    /*background-color: #2175c9;*/
-    /*background-image:url('/images/sri_welcome_lines.png');*/
-    /*background-repeat:no-repeat;*/
-    /*background-size: 100%;*/
-}
-
-input{
-    cursor: pointer;
-}
-.evalDiv{
-}
-
-.goonButton{
-    position: absolute;
-    right: 260px;
-    bottom:100px;
-    width: 58px;
-    height: 41px;
-    border-width: 0;
-    background: url('../images/next_button.png') no-repeat;
-}
-.goonButton:hover{
-    background: url('../images/next_button_pressed.png') no-repeat;
-}
-.goonButton:disabled{
-    background: url('../images/next_button_disabled.png') no-repeat;
-}
+@import "trials_shared.css";
 
 
 .skipButton{

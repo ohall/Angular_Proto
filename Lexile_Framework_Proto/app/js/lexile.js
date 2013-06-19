@@ -193,9 +193,9 @@ app.controller('ReadingListTab',function($scope, sharedProperties){
     /**
      * ngClick of Quiz button
      */
-    $scope.quizButtonClicked = function(){
-        //do some stuff
-
+    $scope.quizButtonClicked = function(pTitle){
+        sessionStorage.setItem('title',pTitle);
+        window.location.href = 'srcHome.html';
     };
 
 
