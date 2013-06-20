@@ -18,7 +18,6 @@ app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedPropert
     $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
     $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
     $scope.skipButtonClicked = function(){ trialFactory.nextButtonClicked(); };
-
 });
 
 
@@ -34,9 +33,6 @@ app.controller('SRCCtrl', function($rootScope, $scope, $location, sharedProperti
 
    $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
    $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
-
-
-
 });
 
 
@@ -48,6 +44,10 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
     var isSRI = path === "/sri";
     var isSRC = path === "/src";
     return{
+        /**
+         * Get trials for either SRI or SRC
+         * @returns {Array}
+         */
         getTrials : function(){//TODO: set by server
             if(isSRI){
                 return sharedProperties.getSRITrials();
@@ -64,10 +64,19 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
                 return null;
             }
         },
+        /**
+         * Set selected index for highlighting and scoring
+         * call updateQuestionText
+         * @param index
+         */
         answerChosen : function(index){
             $rootScope.selectedIndex = index;
             this.updateQuestionText();
         },
+        /**
+         * if an answer is selected, insert it into the question blank
+         * otherwise set text to include the blank
+         */
         updateQuestionText : function(){
             var question =  sharedProperties.getAssessmentTrials()[trialIndex].question;
             if($rootScope.selectedIndex > -1){
@@ -78,12 +87,19 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
             }
             $rootScope.questionText = sharedProperties.getQuestionText();
         },
+        /**
+         * Decrement skipsRemaining and advance
+         */
         skipButtonClicked : function(){
             if(skipsRemaining > 0){
                 skipsRemaining--;
                 this.advanceToNextTrialOrEnd();
             }
         },
+        /**
+         * If trials remain, increment index and update model
+         * Otherwise call endAssessment()
+         */
         advanceToNextTrialOrEnd : function(){
             $rootScope.selectedIndex = -1;
             if (trialIndex < sharedProperties.getAssessmentTrials().length - 1) {
@@ -95,6 +111,10 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
                 this.endAssessment();
             }
         },
+        /**
+         * if SRI, go to goodby screen
+         * if SRC return to main site
+         */
         endAssessment : function(){
             if(isSRI){
                 $location.path('goodbye');
@@ -103,13 +123,9 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
             }
         }
     };
-
 });
 
-
-
 app.service('sharedProperties', function() {
-
     var questionText        = "";
     var assessmentTrials    = [];
 
