@@ -17,15 +17,15 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
      */
     $scope.trialIndex = 0;
 
-    $scope.isSRI = $scope.quizType === sharedProperties.getQuizTypeSRI;
-    $scope.isSRC = sharedProperties.getQuizTypeSRC() === $scope.quizType;
+    $scope.isSRI = $scope.quizType == "sri";
+    $scope.isSRC = $scope.quizType == "src";
 
     /**
      * Get SRI trials if this is and SRI test or books if this is SRC
      * In the latter case grep for book title passed in via sessionStorage
      * @type {Array}
      */
-    $scope.trials = function(){//TODO: set by server
+    $scope.getTrials = function(){//TODO: set by server
 
         if($scope.isSRI){
             return sharedProperties.getSRITrials();
@@ -43,14 +43,17 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
     };
 
 
-
-
+    /**
+     * Array of trials for this assessment
+     * @type {Array}
+     */
+    $scope.assesmentTrials = $scope.getTrials();
 
     /**
      * Question for current trial
      * @type {string}
      */
-    $scope.questionText = $scope.trials()[$scope.trialIndex].question;
+    $scope.questionText = $scope.assesmentTrials[$scope.trialIndex].question;
 
 
     /**
@@ -71,7 +74,7 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
      * Array of answers available to be selected
      * @type {*}
      */
-    $scope.answers = $scope.trials[$scope.trialIndex].answers;
+    $scope.answers = $scope.assesmentTrials[$scope.trialIndex].answers;
 
     /**
      * ngClick handler for answers, takes index
@@ -87,9 +90,9 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
      */
     $scope.getQuestionText = function(){
         if($scope.selectedIndex > -1){
-            $scope.questionText = $scope.trials[$scope.trialIndex].question.replace('________',$scope.trials[$scope.trialIndex].answers[$scope.selectedIndex]);
+            $scope.questionText = $scope.assesmentTrials[$scope.trialIndex].question.replace('________',$scope.assesmentTrials[$scope.trialIndex].answers[$scope.selectedIndex]);
         }else{
-            $scope.questionText =  $scope.trials[$scope.trialIndex].question;
+            $scope.questionText =  $scope.assesmentTrials[$scope.trialIndex].question;
         }
     };
 
@@ -117,7 +120,7 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
      */
     $scope.advanceToNextTrialOrEnd = function(){
         $scope.selectedIndex = -1;
-        if ($scope.trialIndex < $scope.trials.length - 1) {
+        if ($scope.trialIndex < $scope.assesmentTrials.length - 1) {
             $scope.trialIndex++;
             $scope.addAnswers();
             $scope.getQuestionText();
@@ -132,8 +135,8 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
     $scope.addAnswers = function(){
         $scope.answers = [];
         var i = 0;
-        while($scope.answers.length < $scope.trials[$scope.trialIndex].answers.length){
-            $scope.answers[i] = $scope.trials[$scope.trialIndex].answers[i];
+        while($scope.answers.length < $scope.assesmentTrials[$scope.trialIndex].answers.length){
+            $scope.answers[i] = $scope.assesmentTrials[$scope.trialIndex].answers[i];
             i++;
         }
 
@@ -143,7 +146,7 @@ app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
      * End assessment and proceed to next step
      */
     $scope.endAssessment = function(){
-        if($scope.isSRI()){
+        if($scope.isSRI){
             $location.path('goodbye');
         }else{
             $location.path( 'app/index.html' );
@@ -290,31 +293,12 @@ app.service('sharedProperties', function() {
         }
     ];
 
-    /**
-     * Constant for SRC quiz type
-     * @type {string}
-     */
-    var QUIZTYPE_SRI = "sri";
-
-    /**
-     * Constant for SRC quiz type
-     * @type {string}
-     */
-    var QUIZTYPE_SRC = "src";
-
-
     return {
         getSRITrials: function() {
             return sriTrials;
         },
         getBooks: function() {
             return books;
-        },
-        getQuizTypeSRI: function() {
-            return QUIZTYPE_SRI;
-        },
-        getQuizTypeSRC: function() {
-            return QUIZTYPE_SRC;
         }
     };
 });
