@@ -195,7 +195,7 @@ app.controller('ReadingListTab',function($scope, sharedProperties){
      */
     $scope.quizButtonClicked = function(pTitle){
         sessionStorage.setItem('title',pTitle);
-        window.location.href = 'srcHome.html';
+        window.location = 'assessment.html#/src';//TODO: FIX This kludge and the on in app.js
     };
 
 

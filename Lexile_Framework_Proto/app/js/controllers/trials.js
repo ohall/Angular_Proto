@@ -2,161 +2,117 @@
 
 var app = angular.module('StudentAssessmentApp');
 
-app.controller('TrialCtrl', function ($scope, $location, sharedProperties ) {
+app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedProperties, trialFactory ) {
+    $rootScope.skipsRemaining  = 3;
 
-    /**
-     * Set in html view making use of this controller with ng-init
-     * @type {string}
-     */
-    $scope.quizType = "sri";
+    sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
+    sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
 
+    $rootScope.questionText = sharedProperties.getQuestionText();
 
-    /**
-     * Index of trial we're on
-     * @type {number}
-     */
-    $scope.trialIndex = 0;
+    $scope.assessmentTrials = sharedProperties.getAssessmentTrials();
 
-    $scope.isSRI = $scope.quizType == "sri";
-    $scope.isSRC = $scope.quizType == "src";
+    $rootScope.answers = $scope.assessmentTrials[0].answers;
+    $rootScope.passage = $scope.assessmentTrials[0].passage;
 
-    /**
-     * Get SRI trials if this is and SRI test or books if this is SRC
-     * In the latter case grep for book title passed in via sessionStorage
-     * @type {Array}
-     */
-    $scope.getTrials = function(){//TODO: set by server
+    $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
+    $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
+    $scope.skipButtonClicked = function(){ trialFactory.nextButtonClicked(); };
 
-        if($scope.isSRI){
-            return sharedProperties.getSRITrials();
-        }else if($scope.isSRC){
-            var books = sharedProperties.getBooks();
-            var bookSelectedTitle = sessionStorage.getItem('title');
-            var book = $.grep(books, function(e){
-                return bookSelectedTitle === e.title; });
-            return book.trials;
-        }else{
-            return [];
-        }
-
-
-    };
-
-
-    /**
-     * Array of trials for this assessment
-     * @type {Array}
-     */
-    $scope.assesmentTrials = $scope.getTrials();
-
-    /**
-     * Question for current trial
-     * @type {string}
-     */
-    $scope.questionText = $scope.assesmentTrials[$scope.trialIndex].question;
-
-
-    /**
-     * Index of answer chosen by student
-     * Defaults to -1 for none selected
-     * @type {number}
-     */
-    $scope.selectedIndex  = -1;
-
-    /**
-     * Number of questions remaining which student can skip.
-     * Will be defined by server in the future.
-     * @type {number}
-     */
-    $scope.skipsRemaining  = 3;
-
-    /**
-     * Array of answers available to be selected
-     * @type {*}
-     */
-    $scope.answers = $scope.assesmentTrials[$scope.trialIndex].answers;
-
-    /**
-     * ngClick handler for answers, takes index
-     * @param index of the answer selected
-     */
-    $scope.answerChosen = function(index){
-        $scope.selectedIndex = index;
-        $scope.getQuestionText();
-    };
-
-    /**
-     * Update the model with new question text
-     */
-    $scope.getQuestionText = function(){
-        if($scope.selectedIndex > -1){
-            $scope.questionText = $scope.assesmentTrials[$scope.trialIndex].question.replace('________',$scope.assesmentTrials[$scope.trialIndex].answers[$scope.selectedIndex]);
-        }else{
-            $scope.questionText =  $scope.assesmentTrials[$scope.trialIndex].question;
-        }
-    };
-
-    /**
-     * nextButton enabled on answer selection, if clicked, advance
-     */
-    $scope.nextButtonClicked = function(){
-        $scope.advanceToNextTrialOrEnd();
-    };
-
-
-    /**
-     * If skips remaining, decrement skipsRemaining and advance
-     */
-    $scope.skipButtonClicked = function(){
-        if($scope.skipsRemaining > 0){
-            $scope.skipsRemaining--;
-            $scope.advanceToNextTrialOrEnd();
-        }
-    };
-
-    /**
-     * If trials remain, increment trail index and update model accordingly
-     * Else end
-     */
-    $scope.advanceToNextTrialOrEnd = function(){
-        $scope.selectedIndex = -1;
-        if ($scope.trialIndex < $scope.assesmentTrials.length - 1) {
-            $scope.trialIndex++;
-            $scope.addAnswers();
-            $scope.getQuestionText();
-        } else {
-            $scope.endAssessment();
-        }
-    };
-
-    /**
-     * update answers in model
-     */
-    $scope.addAnswers = function(){
-        $scope.answers = [];
-        var i = 0;
-        while($scope.answers.length < $scope.assesmentTrials[$scope.trialIndex].answers.length){
-            $scope.answers[i] = $scope.assesmentTrials[$scope.trialIndex].answers[i];
-            i++;
-        }
-
-    };
-
-    /**
-     * End assessment and proceed to next step
-     */
-    $scope.endAssessment = function(){
-        if($scope.isSRI){
-            $location.path('goodbye');
-        }else{
-            $location.path( 'app/index.html' );
-            $scope.$apply();
-        }
-    };
 });
 
 
+app.controller('SRCCtrl', function($rootScope, $scope, $location, sharedProperties, trialFactory ){
+
+   sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
+   sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
+
+   $rootScope.questionText = sharedProperties.getAssessmentTrials()[0].question;
+   $scope.assessmentTrials = trialFactory.getTrials();
+
+   $rootScope.answers = $scope.assessmentTrials[0].answers;
+
+   $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
+   $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
+
+
+
+});
+
+
+app.factory('trialFactory',function($rootScope, $location, sharedProperties){
+    var trialIndex = 0;
+    var skipsRemaining = 3;
+    $rootScope.selectedIndex = -1;
+    var path = $location.path();
+    var isSRI = path === "/sri";
+    var isSRC = path === "/src";
+    return{
+        getTrials : function(){//TODO: set by server
+            if(isSRI){
+                return sharedProperties.getSRITrials();
+            }else if(isSRC){
+                var books = sharedProperties.getBooks();
+                var bookSelectedTitle = sessionStorage.getItem('title');
+                for(var i=0;i<books.length;i++){
+                    if (books[i].title === bookSelectedTitle){
+                        return books[i].trials;
+                    }
+                }
+            }else{
+                window.console.log("Quiz type not defines");
+                return null;
+            }
+        },
+        answerChosen : function(index){
+            $rootScope.selectedIndex = index;
+            this.updateQuestionText();
+        },
+        updateQuestionText : function(){
+            var question =  sharedProperties.getAssessmentTrials()[trialIndex].question;
+            if($rootScope.selectedIndex > -1){
+                sharedProperties.setQuestionText(question.replace('________',
+                sharedProperties.getAssessmentTrials()[trialIndex].answers[$rootScope.selectedIndex]));
+            }else{
+                sharedProperties.setQuestionText(question);
+            }
+            $rootScope.questionText = sharedProperties.getQuestionText();
+        },
+        skipButtonClicked : function(){
+            if(skipsRemaining > 0){
+                skipsRemaining--;
+                this.advanceToNextTrialOrEnd();
+            }
+        },
+        advanceToNextTrialOrEnd : function(){
+            $rootScope.selectedIndex = -1;
+            if (trialIndex < sharedProperties.getAssessmentTrials().length - 1) {
+                trialIndex++;
+                $rootScope.answers = sharedProperties.getAssessmentTrials()[trialIndex].answers;
+                $rootScope.passage =  sharedProperties.getAssessmentTrials()[trialIndex].passage;
+                this.updateQuestionText();
+            } else {
+                this.endAssessment();
+            }
+        },
+        endAssessment : function(){
+            if(isSRI){
+                $location.path('goodbye');
+            }else if(isSRC){
+                window.location.href = "index.html";
+            }
+        }
+    };
+
+});
+
+
+
 app.service('sharedProperties', function() {
+
+    var questionText        = "";
+    var assessmentTrials    = [];
+
     /**
      * Array of mock SRI trials
      * @type {Array}
@@ -294,11 +250,11 @@ app.service('sharedProperties', function() {
     ];
 
     return {
-        getSRITrials: function() {
-            return sriTrials;
-        },
-        getBooks: function() {
-            return books;
-        }
+        getSRITrials:       function() { return sriTrials; },
+        getBooks:           function() { return books; },
+        setAssessmentTrials:function(pArrayOfTrials){ assessmentTrials = pArrayOfTrials; },
+        getAssessmentTrials:function(){ return assessmentTrials; },
+        setQuestionText:    function(pText){ questionText = pText; },
+        getQuestionText:    function(){ return questionText; }
     };
 });

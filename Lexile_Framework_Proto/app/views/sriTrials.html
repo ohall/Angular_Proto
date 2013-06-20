@@ -1,7 +1,7 @@
-<div class="evalDiv"  ng-init="quizType='src'" ng-controller="TrialCtrl">
+<div class="evalDiv" ng-controller="SRICtrl">
     <img src="images/sri_welcome_logo.png">
     <div class="passage">
-        {{testItems[trialIndex].passage}}
+        {{passage}}
     </div>
     <div class="question">
         {{questionText}}
@@ -16,8 +16,4 @@
 
     <p class="skipP" ng-show="skipsRemaining > 0"> Skips Remaining: {{skipsRemaining}}</p>
     <input type="button" ng-click="skipButtonClicked()" class="skipButton"  />
-
-
-
-
 </div>
