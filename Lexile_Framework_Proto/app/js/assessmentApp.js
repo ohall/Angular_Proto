@@ -10,11 +10,11 @@ app.config(function ($routeProvider, $locationProvider) {
        })
       .when('/sri', {
         templateUrl: 'views/sriTrials.html',
-        controller: 'SRICtrl'
+        controller: 'QuizCtrl'
       })
       .when('/src', {
             templateUrl: 'views/srcTrials.html',
-            controller: 'SRCCtrl'
+            controller: 'QuizCtrl'
       })
       .when('/goodbye',{
       templateUrl:'views/goodbye.html',

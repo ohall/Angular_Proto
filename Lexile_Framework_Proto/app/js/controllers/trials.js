@@ -2,18 +2,36 @@
 
 var app = angular.module('StudentAssessmentApp');
 
-app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedProperties, trialFactory ) {
+/**
+ * Shared controller for both SRI and SRC
+ */
+app.controller('QuizCtrl', function ($rootScope, $scope, $location, sharedProperties, trialFactory ) {
     $scope.skipsRemaining  = 3;
 
-    sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
-    sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
+    /**
+     * Init selected index and listen for updates
+     */
+    $scope.selectedIndex = -1;
+    $rootScope.$on('selectionUpdated', function(){
+        $scope.selectedIndex = trialFactory.getSelectedIndex();
+    });
 
-    $rootScope.questionText = sharedProperties.getQuestionText();
+    /**
+     * Get trials and listen for updates
+     */
+    trialFactory.updateTrials();
+    $rootScope.$on('trialsUpdated', function(){
+        $scope.answers = trialFactory.getAnswers();
+        $scope.passage = trialFactory.getPassage();
+    });
 
-    $scope.assessmentTrials = sharedProperties.getAssessmentTrials();
-
-    $rootScope.answers = $scope.assessmentTrials[0].answers;
-    $rootScope.passage = $scope.assessmentTrials[0].passage;
+    /**
+     * Get question text and listen for updates
+     */
+    trialFactory.updateQuestionText();
+    $rootScope.$on('questionTextUpdate', function(){
+        $scope.questionText = trialFactory.getQuestionText();
+    });
 
     $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
     $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
@@ -21,56 +39,68 @@ app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedPropert
         $scope.skipsRemaining--;
         trialFactory.advanceToNextTrialOrEnd();
     };
-});
 
 
-app.controller('SRCCtrl', function($rootScope, $scope, $location, sharedProperties, trialFactory ){
+    $scope.exitButtonClicked = function(){ trialFactory.endAssessment(); };
     var studentData = JSON.parse( sessionStorage.getItem('studentData') );
     $scope.studentName = studentData.studentName;
     $scope.bookTitle = studentData.bookTitle;
-
-    sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
-    sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
-
-    $rootScope.questionText = sharedProperties.getAssessmentTrials()[0].question;
-    $scope.assessmentTrials = trialFactory.getTrials();
-
-    $rootScope.answers = $scope.assessmentTrials[0].answers;
-
-    $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
-    $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
-    $scope.exitButtonClicked = function(){ trialFactory.endAssessment(); };
 });
 
-
 app.factory('trialFactory',function($rootScope, $location, sharedProperties){
+    /**
+     * This is the data we're passing from the LF student interface
+     * This is not how we'll be getting student data in the future
+     */
     var studentData = JSON.parse( sessionStorage.getItem('studentData') );
-    var trialIndex = 0;
-    var skipsRemaining = 3;
-    $rootScope.selectedIndex = -1;
+
+    /**
+     * Model for trials
+     */
+    var trialIndex          = 0;
+    var questionText        = "";
+    var assessmentTrials    = [];
+    var selectedIndex       = -1;
+
+    /**
+     * Check path to see if this is SRI or SRC
+     */
     var path = $location.path();
     var isSRI = path === "/sri";
     var isSRC = path === "/src";
+
     return{
         /**
          * Get trials for either SRI or SRC
          * @returns {Array}
          */
-        getTrials : function(){//TODO: set by server
+        updateTrials : function(){//TODO: set by server
             if(isSRI){
-                return sharedProperties.getSRITrials();
+                assessmentTrials = sharedProperties.getSRITrials();
             }else if(isSRC){
                 var books = sharedProperties.getBooks();
                 var bookSelectedTitle = studentData.bookTitle;
                 for(var i=0;i<books.length;i++){
                     if (books[i].title === bookSelectedTitle){
-                        return books[i].trials;
+                        assessmentTrials = books[i].trials;
                     }
                 }
             }else{
-                window.console.log("Quiz type not defines");
-                return null;
+                window.console.log("Quiz type not defined");
             }
+            $rootScope.$broadcast('trialsUpdated');
+        },
+        getAnswers : function(){
+            return assessmentTrials[trialIndex].answers;
+        },
+        getPassage : function(){
+            return assessmentTrials[trialIndex].passage;
+        },
+        getQuestionText : function(){
+            return questionText;
+        },
+        getSelectedIndex : function(){
+            return selectedIndex;
         },
         /**
          * Set selected index for highlighting and scoring
@@ -78,37 +108,38 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
          * @param index
          */
         answerChosen : function(index){
-            $rootScope.selectedIndex = index;
+            selectedIndex = index;
+            $rootScope.$broadcast('selectionUpdated');
             this.updateQuestionText();
-        },
-        /**
-         * if an answer is selected, insert it into the question blank
-         * otherwise set text to include the blank
-         */
-        updateQuestionText : function(){
-            var question =  sharedProperties.getAssessmentTrials()[trialIndex].question;
-            if($rootScope.selectedIndex > -1){
-                sharedProperties.setQuestionText(question.replace('________',
-                sharedProperties.getAssessmentTrials()[trialIndex].answers[$rootScope.selectedIndex]));
-            }else{
-                sharedProperties.setQuestionText(question);
-            }
-            $rootScope.questionText = sharedProperties.getQuestionText();
         },
         /**
          * If trials remain, increment index and update model
          * Otherwise call endAssessment()
          */
         advanceToNextTrialOrEnd : function(){
-            $rootScope.selectedIndex = -1;
-            if (trialIndex < sharedProperties.getAssessmentTrials().length - 1) {
+            selectedIndex = -1;
+            $rootScope.$broadcast('selectionUpdated');
+            if (trialIndex < assessmentTrials.length - 1) {
                 trialIndex++;
-                $rootScope.answers = sharedProperties.getAssessmentTrials()[trialIndex].answers;
-                $rootScope.passage =  sharedProperties.getAssessmentTrials()[trialIndex].passage;
+                $rootScope.$broadcast('trialsUpdated');
                 this.updateQuestionText();
             } else {
                 this.endAssessment();
             }
+        },
+        /**
+         * if an answer is selected, insert it into the question blank
+         * otherwise set text to include the blank
+         */
+        updateQuestionText : function(){
+            var question =  assessmentTrials[trialIndex].question;
+            if(selectedIndex > -1){
+                questionText = question.replace('________',
+                    assessmentTrials[trialIndex].answers[selectedIndex]);
+            }else{
+                questionText = question;
+            }
+            $rootScope.$broadcast('questionTextUpdate');
         },
         /**
          * if SRI, go to goodby screen
@@ -125,9 +156,6 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
 });
 
 app.service('sharedProperties', function() {
-    var questionText        = "";
-    var assessmentTrials    = [];
-
     /**
      * Array of mock SRI trials
      * @type {Array}
@@ -173,7 +201,6 @@ app.service('sharedProperties', function() {
             answers:['famous','frugal','funny','fearful']
         }
     ];
-
 
     /**
      * Array of mock books data
@@ -270,18 +297,6 @@ app.service('sharedProperties', function() {
         },
         getBooks : function() {
             return books;
-        },
-        setAssessmentTrials : function(pArrayOfTrials){
-            assessmentTrials = pArrayOfTrials;
-        },
-        getAssessmentTrials : function(){
-            return assessmentTrials;
-        },
-        setQuestionText : function(pText){
-            questionText = pText;
-        },
-        getQuestionText : function(){
-            return questionText;
         }
     };
 });
