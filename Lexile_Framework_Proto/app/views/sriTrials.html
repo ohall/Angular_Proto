@@ -1,4 +1,5 @@
 <div class="evalDiv" ng-controller="SRICtrl">
+    <link rel="stylesheet" href="../css/sri_trials.css" media="screen">
     <img src="images/sri_welcome_logo.png">
     <div class="passage">
         {{passage}}
@@ -6,14 +7,22 @@
     <div class="question">
         {{questionText}}
     </div>
-    <div class="answers">
-        <span ng-repeat="answer in answers"
-               class="selected-{{$index==selectedIndex}}"
-               ng-click="answerChosen($index)">{{answer}}
+    <ul class="answers">
+        <li><span ng-repeat="answer in answers"
+                  class="selected-{{$index==selectedIndex}}"
+                  ng-click="answerChosen($index)">{{answer}}
+        </span></li>
+    </ul>
+
+    <div class="buttonArea">
+        <input type="button" ng-click="nextButtonClicked()"
+               class="goonButton" ng-disabled="selectedIndex == -1" />
+
+        <span class="skipArea">
+            <input type="button" ng-click="skipButtonClicked()"
+                   class="skipButton"  />
+            <p class="skipP" ng-show="skipsRemaining > 0">
+                Skips Remaining: {{skipsRemaining}}</p>
         </span>
     </div>
-    <input type="button" ng-click="nextButtonClicked()" class="goonButton" ng-disabled="selectedIndex == -1" />
-
-    <p class="skipP" ng-show="skipsRemaining > 0"> Skips Remaining: {{skipsRemaining}}</p>
-    <input type="button" ng-click="skipButtonClicked()" class="skipButton"  />
 </div>

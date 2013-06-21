@@ -12,9 +12,6 @@ input{
 }
 
 .goonButton{
-    position: absolute;
-    right: 260px;
-    bottom:100px;
     width: 58px;
     height: 41px;
     border-width: 0;
@@ -25,4 +22,42 @@ input{
 }
 .goonButton:disabled{
     background: url('../images/next_button_disabled.png') no-repeat;
+}
+
+.answers{
+    list-style: none;
+    cursor: pointer;
+    max-width: 10px;
+}
+
+.buttonArea{
+    overflow: auto;
+    left: 0px;
+    right: 0px;
+    padding: 30px;
+}
+
+.selected-true {
+    border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    background-color: green;
+    color: #000000;
+}
+
+.selected-false {
+    padding: 10px;
+    display: inline-block;
+    background-color: transparent;
+}
+
+.selected-false:hover {
+    border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    display: inline-block;
+    opacity: 0.8;
+    background-color: #ffff00;
+    color: #000000;
 }

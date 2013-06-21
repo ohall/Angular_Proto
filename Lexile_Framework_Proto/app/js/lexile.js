@@ -194,8 +194,10 @@ app.controller('ReadingListTab',function($scope, sharedProperties){
      * ngClick of Quiz button
      */
     $scope.quizButtonClicked = function(pTitle){
-        sessionStorage.setItem('title',pTitle);
-        window.location = 'assessment.html#/src';//TODO: FIX This kludge and the on in app.js
+        sessionStorage.setItem( 'studentData', JSON.stringify(
+                                {bookTitle:pTitle,
+                                 studentName:sharedProperties.getStudent().name}));
+        window.location = 'assessment.html#/src';//TODO: FIX This kludge and the on in assessmentApp.js
     };
 
 

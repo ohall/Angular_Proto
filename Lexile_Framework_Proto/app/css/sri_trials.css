@@ -2,9 +2,8 @@
 
 
 .skipButton{
-    position: absolute;
-    right: 10px;
-    bottom: 20px;
+    margin: 10px;
+    float: right;
     width: 58px;
     height: 41px;
     border-width: 0;
@@ -16,14 +15,18 @@
 }
 
 .skipP{
-    right: 100px;
-    bottom: 15px;
-    vertical-align: middle;
-    display:inline-block;
+    float: right;
     color: #000000;
-    position: absolute;
 }
 
+.skipArea{
+    vertical-align: middle;
+    display: inline-block;
+    float: right;
+}
+.goonButton{
+    float: left;
+}
 .passage{
     color: navajowhite;
     width: 80%;
@@ -35,35 +38,22 @@
     padding-left: 50px;
 }
 
+.buttonArea{
+}
+
 .answers{
-    display: inline-block;
     color: navajowhite;
-    padding: 50px;
+    padding-left: 50px;
+    padding-top: 50px;
     cursor: pointer;
-    width: 100px;
 }
 
 .selected-true {
-    border-radius: 5px;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
-    background-color: green;
-    color: #000000;
 }
 
 .selected-false {
-    padding: 10px;
-    display: inline-block;
-    background-color: transparent;
 }
 
 .selected-false:hover {
-    border-radius: 5px;
-    border-radius: 5px;
-    padding: 10px;
-    display: inline-block;
-    opacity: 0.8;
-    background-color: #ffff00;
-    color: #000000;
+
 }

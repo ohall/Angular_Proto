@@ -3,7 +3,7 @@
 var app = angular.module('StudentAssessmentApp');
 
 app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedProperties, trialFactory ) {
-    $rootScope.skipsRemaining  = 3;
+    $scope.skipsRemaining  = 3;
 
     sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
     sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
@@ -17,26 +17,34 @@ app.controller('SRICtrl', function ($rootScope, $scope, $location, sharedPropert
 
     $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
     $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
-    $scope.skipButtonClicked = function(){ trialFactory.nextButtonClicked(); };
+    $scope.skipButtonClicked = function(){
+        $scope.skipsRemaining--;
+        trialFactory.advanceToNextTrialOrEnd();
+    };
 });
 
 
 app.controller('SRCCtrl', function($rootScope, $scope, $location, sharedProperties, trialFactory ){
+    var studentData = JSON.parse( sessionStorage.getItem('studentData') );
+    $scope.studentName = studentData.studentName;
+    $scope.bookTitle = studentData.bookTitle;
 
-   sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
-   sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
+    sharedProperties.setAssessmentTrials( trialFactory.getTrials() );
+    sharedProperties.setQuestionText(sharedProperties.getAssessmentTrials()[0].question);
 
-   $rootScope.questionText = sharedProperties.getAssessmentTrials()[0].question;
-   $scope.assessmentTrials = trialFactory.getTrials();
+    $rootScope.questionText = sharedProperties.getAssessmentTrials()[0].question;
+    $scope.assessmentTrials = trialFactory.getTrials();
 
-   $rootScope.answers = $scope.assessmentTrials[0].answers;
+    $rootScope.answers = $scope.assessmentTrials[0].answers;
 
-   $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
-   $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
+    $scope.answerChosen = function(pIndex){ trialFactory.answerChosen(pIndex); };
+    $scope.nextButtonClicked = function(){ trialFactory.advanceToNextTrialOrEnd(); };
+    $scope.exitButtonClicked = function(){ trialFactory.endAssessment(); };
 });
 
 
 app.factory('trialFactory',function($rootScope, $location, sharedProperties){
+    var studentData = JSON.parse( sessionStorage.getItem('studentData') );
     var trialIndex = 0;
     var skipsRemaining = 3;
     $rootScope.selectedIndex = -1;
@@ -53,7 +61,7 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
                 return sharedProperties.getSRITrials();
             }else if(isSRC){
                 var books = sharedProperties.getBooks();
-                var bookSelectedTitle = sessionStorage.getItem('title');
+                var bookSelectedTitle = studentData.bookTitle;
                 for(var i=0;i<books.length;i++){
                     if (books[i].title === bookSelectedTitle){
                         return books[i].trials;
@@ -86,15 +94,6 @@ app.factory('trialFactory',function($rootScope, $location, sharedProperties){
                 sharedProperties.setQuestionText(question);
             }
             $rootScope.questionText = sharedProperties.getQuestionText();
-        },
-        /**
-         * Decrement skipsRemaining and advance
-         */
-        skipButtonClicked : function(){
-            if(skipsRemaining > 0){
-                skipsRemaining--;
-                this.advanceToNextTrialOrEnd();
-            }
         },
         /**
          * If trials remain, increment index and update model
@@ -266,11 +265,23 @@ app.service('sharedProperties', function() {
     ];
 
     return {
-        getSRITrials:       function() { return sriTrials; },
-        getBooks:           function() { return books; },
-        setAssessmentTrials:function(pArrayOfTrials){ assessmentTrials = pArrayOfTrials; },
-        getAssessmentTrials:function(){ return assessmentTrials; },
-        setQuestionText:    function(pText){ questionText = pText; },
-        getQuestionText:    function(){ return questionText; }
+        getSRITrials : function() {
+            return sriTrials;
+        },
+        getBooks : function() {
+            return books;
+        },
+        setAssessmentTrials : function(pArrayOfTrials){
+            assessmentTrials = pArrayOfTrials;
+        },
+        getAssessmentTrials : function(){
+            return assessmentTrials;
+        },
+        setQuestionText : function(pText){
+            questionText = pText;
+        },
+        getQuestionText : function(){
+            return questionText;
+        }
     };
 });

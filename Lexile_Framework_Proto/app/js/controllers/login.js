@@ -33,7 +33,7 @@ angular.module('StudentAssessmentApp')
             if ($scope.userName === '' || $scope.password === '') {
                 alert("Username and Password required");
             } else {
-                $location.path('trials');
+                $location.path('sri');
             }
         };
 
