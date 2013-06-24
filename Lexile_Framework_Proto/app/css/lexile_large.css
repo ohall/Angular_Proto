@@ -1,6 +1,74 @@
+@import "bootstrap.min.css";
+
+/*Overall page styles*/
+.container{
+    margin: 20px;
+    width: 100%;
+}
+
+h3{
+    left: 0px;
+}
+
+
 li{
     list-style: none;
 }
+
+body{
+    margin: 60px;
+}
+
+/*Reading List Tab*/
+
+.readingListInfo{
+    display: inline-block;
+    width: 800px;
+    background-color: #e1e1e8;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.readingListInfo .pleft{
+    width: 50%;
+    float: left;
+}
+
+.readingListInfo .pright{
+   width: 50%;
+   float: right;
+}
+
+.bookRecItem{
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px;
+    min-width: 760px;
+    height: 200px;
+}
+
+.bookRecItem .btn{
+    float: right;
+}
+
+.bookRecTextArea{
+    width: 600px;
+    padding: 10px;
+    float: left;
+}
+
+.bookRecTextArea li{
+    width: 100%;
+}
+
+.cover{
+    float: left;
+    padding: 5px;
+}
+
+
+
+/*Results*/
 
 .resultsHeader{
     height: 40px;
@@ -16,6 +84,11 @@ li{
 }
 
 /*Take a Quiz Tab*/
+
+
+.input-block-level{
+    text-align: center;
+}
 
 .commentBox{
 
@@ -71,6 +144,7 @@ li{
 }
 
 .searchingForm-true{
+    max-width: 1000px;
     display:inline-block;
     opacity:1.0;
 }
@@ -96,19 +170,26 @@ li{
 }
 
 .searchlist{
-    overflow: hidden;
-    width: 400px;
-    float: left;
+    max-width: 1000px;
+    background-color: lightgrey;
+    display: inline-block;
 }
 
-.searchlist li{
-    min-width: 100px;
-    max-width: 200px;
+.searchlist div{
+    margin: 10px;
+    float: left;
+    overflow: hidden;
+    width: 100px;
+    height: 50px;
     border-radius: 5px;
     border-radius: 5px;
-    display:block;
     padding: 10px;
 
+}
+
+.searchingForm-true .btn-large{
+    float: right;
+    margin-top: 20px;
 }
 
 .selected-true {
@@ -126,61 +207,20 @@ li{
     color: #000000;
 }
 
-
 .checkboxes{
-    float: left;
-    padding: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
 }
 
-.checkboxes ul{
-    padding:5px;
-    float:left;
-    margin: 0px;
-}
+.checkboxes input{
 
-.checkboxes li{
-    list-style: none;
-    padding: 10px;
+    margin: 0px 4px 0px 20px ;
 }
 
 
 
 
 
-/*Reading List Tab*/
-
-.bookRecItem{
-    display: inline-block;
-    margin-bottom: 10px;
-    padding: 10px;
-    background: cornflowerblue;
-    border-radius: 5px;
-    box-shadow: 5px 5px 1px #888888;
-    width: 90%;
-}
-
-.bookRecItem .btn-large{
-    visibility: hidden;
-}
-
-.bookRecItem:hover .btn-large{
-    visibility: visible;
-}
-
-.bookRecTextArea{
-    padding: 10px;
-    width: 60%;
-    height: 100%;
-    float: left;
-}
-
-.cover{
-    float: left;
-    padding: 5px;
-}
-
-.btn-large{
-    float: right;
-}
 
 

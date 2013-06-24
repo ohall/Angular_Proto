@@ -212,7 +212,8 @@ app.service('sharedProperties', function() {
      * @type {{name: string, school: string, lexile: number, books: number, words: number}}
      */
     var student = {
-        name: 'Jacoby Ellsbury',
+        firstName: 'Jacoby',
+        lastName: 'Ellsbury',
         school:'Fenway Elementary School',
         lexile:350,
         books:11,
@@ -289,7 +290,7 @@ app.service('sharedProperties', function() {
         "Nature & the Earth",
         "How Things Work",
         "Science Fiction & Fantasy Space",
-        "Fun & Games"
+        "Fun & Games", "Other", "n' stuff"
     ];
 
     return {

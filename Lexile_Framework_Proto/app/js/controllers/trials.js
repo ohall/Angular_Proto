@@ -40,11 +40,7 @@ app.controller('QuizCtrl', function ($rootScope, $scope, $location, sharedProper
         trialFactory.advanceToNextTrialOrEnd();
     };
 
-
     $scope.exitButtonClicked = function(){ trialFactory.endAssessment(); };
-    var studentData = JSON.parse( sessionStorage.getItem('studentData') );
-    $scope.studentName = studentData.studentName;
-    $scope.bookTitle = studentData.bookTitle;
 });
 
 app.factory('trialFactory',function($rootScope, $location, sharedProperties){

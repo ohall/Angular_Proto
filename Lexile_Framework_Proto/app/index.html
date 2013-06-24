@@ -2,20 +2,33 @@
 <html lang="en" ng-app="LexileFrameWorkStudent">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <title>Lexile Framework Student</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="css/lexile.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link id="pageStyle" href="css/lexile_large.css" rel="stylesheet">
 
+    <script>
+        function layoutHandler(){
+            var styleLink = document.getElementById("pageStyle");
+            if(window.innerWidth < 1000){
+                styleLink.setAttribute("href", "css/lexile_mobile.css");
+         //   } else if(window.innerWidth < 900){
+
+            } else {
+                styleLink.setAttribute("href", "css/lexile_large.css");
+            }
+        }
+        window.onresize = layoutHandler;
+        layoutHandler();
+    </script>
+    <!--media="screen and (min-width: 360px)"-->
 </head>
-<body ng-controller="PageController" style="padding: 10px 10px 10px 10px" >
-<h2>{{student.name}}</h2>
-<h4>{{student.school}}</h4>
-<div class="container" style="padding-top: 30px" >
+<body ng-controller="PageController">
+<div class="container">
 
     <div class="row">
-        <div class="tabbable tabs-left">
-            <ul class="nav nav-tabs">
+        <div class="tabbable">
+            <ul class="nav nav-pills">
                 <li class="active"><a href="#readingList"
                                       data-toggle="tab">Get Reading List</a></li>
                 <li class=""><a href="#srcQuiz"
@@ -31,73 +44,79 @@
             <div class="tab-content">
                 <!--READING LIST TAB-->
                 <div class="tab-pane active" ng-controller="ReadingListTab" id="readingList">
-                    <p style="max-width: 25%">My Lexile: {{lexile}}</p>
-                    <p>Next test date: {{nextTestDate}} </p>
-                    <p>Welcome! You have read {{booksRead}} books, {{wordsRead}} words
-                        and reviewed {{booksReviewed}} books</p>
-                    <p>If you like <b ng-repeat="interest in interests">{{interest}} </b>
-                        You might like these books:</p>
-                    <span ng-repeat="book in books" class="bookRecItem">
-                        <img class="cover" ng-src="images/{{book.cover}}.jpg">
-                        <div class="bookRecTextArea" >
+                    <h3>Welcome {{student.firstName}}!</h3>
+                    <div class="readingListInfo">
+                        <div class="pleft">
+                        <ul>
+                            <li><p>My Lexile: {{lexile}}</p></li>
+                            <li><p>Next test date: {{nextTestDate}} </p></li>
+                        </ul>
+                        </div>
+                        <div class="pright">
                             <ul>
-                                <li><p>{{book.title}}</p></li>
-                                <li><p>{{book.author}}</p></li>
-                                <li><p>{{book.description}}</p></li>
-                                <li><p>Lexile: {{book.lexile}}</p></li>
-                                <li><p>{{book.interest}}</p></li>
+                                <li><p>You have read {{booksRead}} books</p></li>
+                                <li><p>You've reviewed {{booksReviewed}} books</p></li>
                             </ul>
                         </div>
-                        <input class="btn-large" type="button"
-                               value="Take Quiz!" ng-click="quizButtonClicked(book.title)">
-                    </span>
+                    </div>
+                    <p>If you like <b ng-repeat="interest in interests">{{interest}} </b>
+                        You might like these books:</p>
+                    <ul>
+                        <li ng-repeat="book in books">
+                            <span class="bookRecItem">
+                                <img class="cover" ng-src="images/{{book.cover}}.jpg">
+                                <div class="bookRecTextArea" >
+                                    <ul>
+                                        <li><b>{{book.title}} - Lexile: {{book.lexile}}</b></li>
+                                        <li><b>{{book.author}}</b></li>
+                                        <li><p>{{book.description}}</p></li>
+                                        <li>
+                                            <div>
+                                                <p>{{book.interest}}</p>
+                                                <input class="btn" type="button"
+                                                       value="Take the Quiz"
+                                                       ng-click="quizButtonClicked(book.title)"/>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </span>
+                        </li>
+                    </ul>
                 </div>
 
                 <!--QUIZ TAB-->
                 <div class="tab-pane" ng-controller="QuizTab" id="srcQuiz">
-                    <div class="span8" style="padding-bottom: 20px">
-                        <input type="text" class="search-query"
-                               placeholder="Title..." ng-model="title" />
-                        <input type="text" class="search-query"
-                               placeholder="Author..." ng-model="author" />
-                    </div>
+                    <h5>Hi {{student.firstName}}!</h5>
+                    <form class="form-search">
+                        <div class="input-block-level">
+                            <input type="text" class="span4 input-large"
+                                   placeholder="Enter Book Title, Author or Keyword" ng-model="title">
+
+                            </input>
+                            <button type="submit" class="btn">Quick Search</button>
+                        </div>
+                    </form>
                    <div class="searchingForm-{{searchDivVisible}}">
-                        <div class="span8" style="padding: 20px">
-                           <p>Title: {{title}}</p>
-                           <p>Author: {{author}}</p>
+                        <div class="span8 checkboxes" >
+                            <input type="checkbox" class="checkbox"
+                                   ng-model="isQuizOnly">Quizzes only</input>
+                            <input type="checkbox" class="checkbox"
+                                   ng-model="isInLibraryOnly"/>Library only</input>
+                            <input type="checkbox" class="checkbox"
+                                   ng-model="isInMyLexileOnly"/>In my Lexile range</input>
                         </div>
+                        <span class="searchlist">
+                           <h4>Select catagories</h4>
+                           <div class="selected-{{isSelectedIndex($index)}}"
+                                 ng-click="itemSelected($index)"
+                                 ng-repeat="catagory in catagories">{{catagory}}</div>
 
-                        <div class="span4">
-                            <div class="searchlist">
-                                <ul>
-                                   <li class="selected-{{isSelectedIndex($index)}}"
-                                         ng-click="itemSelected($index)"
-                                         ng-repeat="catagory in catagories">{{catagory}}</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="span4">
-                            <div class="checkboxes">
-                                <ul>
-                                    <li><input type="checkbox"
-                                               ng-model="isQuizOnly"/>Search quizzes only</li>
-                                    <li><input type="checkbox"
-                                               ng-model="isInLibraryOnly"/>Search in library only</li>
-                                    <li><input type="checkbox"
-                                               ng-model="isInMyLexileOnly"/>Search in my Lexile range</li>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-
-
-                        <div class="span2" style="padding: 40px 5px 5px 20px;">
-                            <input type="button" class="btn-large"
-                                   value="Search"
-                                   ng-click="searchButtonClick()">
-                        </div>
+                        </span>
+                        <input type="button" class="btn-large"
+                              value="Search"
+                              ng-click="searchButtonClick()">
                    </div>
 
                    <div class="quizselectionDiv-{{quizDivVisible}}">

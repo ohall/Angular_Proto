@@ -4,7 +4,7 @@
     <list default="true" id="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" name="Default" comment="" />
     <ignored path="Lexile_Framework_Proto.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/index.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371675165552" ignored="false" />
+    <file path="/index.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1372106996134" ignored="false" />
     <file path="/Dummy.txt" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371148811781" ignored="false" />
     <file path="/fixed.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371143527133" ignored="false" />
     <file path="/a.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371657473204" ignored="false" />
@@ -12,12 +12,12 @@
     <file path="/sri_home.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371657913315" ignored="false" />
     <file path="/login.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371582340520" ignored="false" />
     <file path="/sri_main.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371582826973" ignored="false" />
-    <file path="/lexile.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371831246503" ignored="false" />
+    <file path="/lexile.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1372106566354" ignored="false" />
     <file path="/main.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371594137775" ignored="false" />
     <file path="/a.coffee" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371657465524" ignored="false" />
     <file path="/src_home.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371657975600" ignored="false" />
     <file path="/sri_trials.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371840101364" ignored="false" />
-    <file path="/trials.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371851329476" ignored="false" />
+    <file path="/trials.js" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1372086762384" ignored="false" />
     <file path="/trials.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371667419940" ignored="false" />
     <file path="/src_trials.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371667432426" ignored="false" />
     <file path="/sriTrials.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371839945860" ignored="false" />
@@ -26,6 +26,8 @@
     <file path="/src_trials.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371837694793" ignored="false" />
     <file path="/sriHome.html" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371753605229" ignored="false" />
     <file path="/trials_shared.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1371840750688" ignored="false" />
+    <file path="/lexile_mobile.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1372096401580" ignored="false" />
+    <file path="/lexile_large.css" changelist="e0398f2f-63e9-4cb4-a5d3-44b43f70d824" time="1372107324587" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,13 +46,13 @@
     <favorites_list name="Lexile_Framework_Proto" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.42777085">
+    <splitter split-orientation="horizontal" split-proportion="0.4352879">
       <split-first>
         <leaf>
-          <file leaf-file-name="sriTrials.html" pinned="false" current="false" current-in-tab="true">
+          <file leaf-file-name="sriTrials.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/sriTrials.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="9" column="69" selection-start="307" selection-end="307" vertical-scroll-proportion="0.19396552">
+                <state line="28" column="0" selection-start="958" selection-end="958" vertical-scroll-proportion="-17.5">
                   <folding />
                 </state>
               </provider>
@@ -59,7 +61,43 @@
           <file leaf-file-name="srcTrials.html" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/views/srcTrials.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="-0.0">
+                <state line="6" column="26" selection-start="294" selection-end="294" vertical-scroll-proportion="-3.75">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lexile_medium.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/css/lexile_medium.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lexile_mobile.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/css/lexile_mobile.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="19" column="3" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="bootstrap-responsive.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/css/bootstrap-responsive.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="130" column="31" selection-start="2020" selection-end="2029" vertical-scroll-proportion="-13.84">
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lexile_shared.css" pinned="false" current="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/app/css/lexile_shared.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -68,36 +106,16 @@
           <file leaf-file-name="lexile.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/js/lexile.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="303" column="9" selection-start="7944" selection-end="7944" vertical-scroll-proportion="0.0">
-                  <folding>
-                    <element signature="e#5356#5496#0" expanded="false" />
-                    <element signature="e#5584#7070#0" expanded="false" />
-                    <element signature="e#7164#7712#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="normalize.css" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/css/normalize.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="24" column="51" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+                <state line="292" column="35" selection-start="7746" selection-end="7746" vertical-scroll-proportion="-15.28">
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="exit_button.png" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/images/exit_button.png">
-              <provider selected="true" editor-type-id="images">
-                <state />
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="assessmentApp.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/js/assessmentApp.js">
+          <file leaf-file-name="lexile_large.css" pinned="false" current="true" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/app/css/lexile_large.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="29" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+                <state line="191" column="20" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.59110475">
                   <folding />
                 </state>
               </provider>
@@ -125,42 +143,24 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/app/index.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="13" column="50" selection-start="544" selection-end="544" vertical-scroll-proportion="-8.125">
-                  <folding>
-                    <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                    <element signature="tag#div#2;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-                  </folding>
+                <state line="118" column="94" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.75358164">
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="trials.js" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="trials.js" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/js/controllers/trials.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="7" column="24" selection-start="132" selection-end="140" vertical-scroll-proportion="-0.14349777">
+                <state line="4" column="3" selection-start="69" selection-end="69" vertical-scroll-proportion="-2.4">
                   <folding>
-                    <element signature="e#1580#5028#0" expanded="false" />
-                    <element signature="e#5075#11602#0" expanded="false" />
-                    <element signature="e#8247#11433#0" expanded="false" />
+                    <element signature="e#4903#11430#0" expanded="false" />
+                    <element signature="e#8075#11261#0" expanded="false" />
                   </folding>
                 </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="angular.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="http://localhost:8080/components/angular/angular.js">
-              <provider selected="true" editor-type-id="httpFileEditor">
-                <state />
               </provider>
             </entry>
           </file>
@@ -176,7 +176,7 @@
           <file leaf-file-name="trials_shared.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/css/trials_shared.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="32" column="71" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
+                <state line="32" column="12" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -185,7 +185,7 @@
           <file leaf-file-name="sri_trials.css" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/app/css/sri_trials.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="17" column="103" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
+                <state line="17" column="17" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
                   <folding />
                 </state>
               </provider>
@@ -203,22 +203,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/index.html" />
-        <option value="$PROJECT_DIR$/app/js/srcApp.js" />
-        <option value="$PROJECT_DIR$/app/js/sriApp.js" />
-        <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/app/sriHome.html" />
         <option value="$PROJECT_DIR$/app/js/app.js" />
         <option value="$PROJECT_DIR$/app/assessment.html" />
         <option value="$PROJECT_DIR$/app/js/controllers/login.js" />
-        <option value="$PROJECT_DIR$/app/js/lexile.js" />
         <option value="$PROJECT_DIR$/app/css/src_trials.css" />
         <option value="$PROJECT_DIR$/app/css/sri_trials.css" />
         <option value="$PROJECT_DIR$/app/css/trials_shared.css" />
         <option value="$PROJECT_DIR$/app/js/assessmentApp.js" />
-        <option value="$PROJECT_DIR$/app/js/controllers/trials.js" />
         <option value="$PROJECT_DIR$/app/views/srcTrials.html" />
         <option value="$PROJECT_DIR$/app/views/sriTrials.html" />
+        <option value="localhost:8080/components/angular/angular.js" />
+        <option value="$PROJECT_DIR$/app/js/controllers/trials.js" />
+        <option value="$PROJECT_DIR$/app/css/lexile_shared.css" />
+        <option value="$PROJECT_DIR$/app/css/lexile_mobile.css" />
+        <option value="$PROJECT_DIR$/app/js/lexile.js" />
+        <option value="$PROJECT_DIR$/app/index.html" />
+        <option value="$PROJECT_DIR$/app/css/lexile_large.css" />
       </list>
     </option>
   </component>
@@ -273,6 +273,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,20 +362,19 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="Errors" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.html" />
+    <property name="options.lastSelected" value="Errors" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.html" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -406,7 +406,7 @@
     </configuration>
     <configuration default="true" type="JavascriptDebugSession" factoryName="Remote" singleton="true">
       <JSRemoteDebuggerConfigurationSettings>
-        <option name="engineId" />
+        <option name="engineId" value="embedded" />
         <option name="fileUrl" />
       </JSRemoteDebuggerConfigurationSettings>
       <method />
@@ -497,14 +497,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="1916" height="1178" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46030247" sideWeight="0.49973586" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289225" sideWeight="0.49973586" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24986793" sideWeight="0.70699435" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1516112" sideWeight="0.70699435" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29300568" sideWeight="0.73481244" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1516112" sideWeight="0.7075472" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29245284" sideWeight="0.73481244" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29300568" sideWeight="0.26518753" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -512,6 +511,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289225" sideWeight="0.49973586" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -579,13 +579,42 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="61" />
+      <option name="time" value="63" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/js/controllers/goodbye.js">
+    <entry file="http://localhost:8080/components/angular/angular.js">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/srcTrials.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="9" selection-start="264" selection-end="264" vertical-scroll-proportion="0.27659574">
+        <state line="6" column="26" selection-start="294" selection-end="294" vertical-scroll-proportion="-3.75">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/sriTrials.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="958" selection-end="958" vertical-scroll-proportion="-17.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/controllers/trials.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="3" selection-start="69" selection-end="69" vertical-scroll-proportion="-2.4">
+          <folding>
+            <element signature="e#4903#11430#0" expanded="false" />
+            <element signature="e#8075#11261#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/bootstrap-responsive.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -595,39 +624,23 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/images/next_button_pressed.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/css/normalize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="51" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
+        <state line="24" column="0" selection-start="449" selection-end="449" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/trials_shared.css">
+    <entry file="file://$PROJECT_DIR$/app/css/bootstrap-responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="71" selection-start="621" selection-end="621" vertical-scroll-proportion="0.0">
+        <state line="130" column="31" selection-start="2020" selection-end="2029" vertical-scroll-proportion="-13.84">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/lexile.js">
+    <entry file="file://$PROJECT_DIR$/app/css/lexile_mobile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="9" selection-start="7944" selection-end="7944" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#5356#5496#0" expanded="false" />
-            <element signature="e#5584#7070#0" expanded="false" />
-            <element signature="e#7164#7712#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/src_trials.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="355" selection-end="355" vertical-scroll-proportion="0.0">
+        <state line="19" column="3" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -646,64 +659,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/lexile_shared.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/js/lexile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="35" selection-start="7746" selection-end="7746" vertical-scroll-proportion="-15.28">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/css/lexile_medium.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="50" selection-start="544" selection-end="544" vertical-scroll-proportion="-8.125">
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#0;tag#div#1;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="tag#div#2;tag#div#0;tag#div#0;tag#div#0;tag#div#0;tag#body#0;tag#html#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="http://localhost:8080/components/angular/angular.js">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/assessmentApp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="29" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
+        <state line="118" column="94" selection-start="5800" selection-end="5800" vertical-scroll-proportion="0.75358164">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/srcTrials.html">
+    <entry file="file://$PROJECT_DIR$/app/css/lexile_large.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="44" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
+        <state line="191" column="20" selection-start="2386" selection-end="2386" vertical-scroll-proportion="0.59110475">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/sriTrials.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="69" selection-start="307" selection-end="307" vertical-scroll-proportion="0.19396552">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/css/sri_trials.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="103" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/js/controllers/trials.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="24" selection-start="132" selection-end="140" vertical-scroll-proportion="-0.14349777">
-          <folding>
-            <element signature="e#1580#5028#0" expanded="false" />
-            <element signature="e#5075#11602#0" expanded="false" />
-            <element signature="e#8247#11433#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
