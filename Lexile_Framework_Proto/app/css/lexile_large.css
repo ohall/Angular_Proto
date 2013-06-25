@@ -132,6 +132,20 @@ body{
     width: 60%;
 }
 
+
+
+
+
+
+
+
+
+/*Take a Quiz Tab*/
+.quizHeader{
+    text-align: center;
+
+}
+
 .resultsDiv-true{
     display:inline-block;
     opacity:1.0;
@@ -144,8 +158,6 @@ body{
 }
 
 .searchingForm-true{
-    max-width: 1000px;
-    display:inline-block;
     opacity:1.0;
 }
 
@@ -170,16 +182,16 @@ body{
 }
 
 .searchlist{
-    max-width: 1000px;
+    padding: 20px;
     background-color: lightgrey;
     display: inline-block;
 }
 
-.searchlist div{
+.searchlistItem{
     margin: 10px;
     float: left;
     overflow: hidden;
-    width: 100px;
+    width: 50px;
     height: 50px;
     border-radius: 5px;
     border-radius: 5px;
@@ -198,29 +210,41 @@ body{
 }
 
 .selected-false {
-    background-color: transparent;
+    background-color: #808080;
+    opacity: 0.3;
+    color: #ffffff;
 }
 
 .selected-false:hover {
     opacity: 0.8;
     background-color: #ffff00;
-    color: #000000;
+    color: #ffffff;
 }
 
 .checkboxes{
-    width: 100%;
-    text-align: center;
-    padding: 20px;
+    padding-top: 20px;
 }
 
 .checkboxes input{
-
     margin: 0px 4px 0px 20px ;
 }
 
+.selectedCatagories{
+    background-color: #808080;
+    max-height: 90px;
+}
 
+.changeCatLink{
+    text-decoration: underline;
+    float: right;
+    padding:60px 15px;
+    cursor: pointer;
+}
 
+.resultsForText{
+    max-width: 60%;
 
+}
 
 
 

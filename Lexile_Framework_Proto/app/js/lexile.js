@@ -31,14 +31,14 @@ app.controller('ResultsTab',function($scope, sharedProperties){
 
 app.controller('QuizTab', function($scope, sharedProperties){
 
-    $scope.NUM_SELECTABLE_CATAGORIES = 3;
-    $scope.title            = "";
-    $scope.author           = "";
+    $scope.NUM_SELECTABLE_categories  = 3;
+    $scope.searchKeyWord    = "";
     $scope.isQuizOnly       = false;
     $scope.isInLibraryOnly  = false;
     $scope.isInMyLexileOnly = false;
-    $scope.catagories       = sharedProperties.getCatagories();
+    $scope.categories        = sharedProperties.getcategories ();
     $scope.books            = sharedProperties.getBooks();
+    $scope.interests = [];
 
     /**
      * Used to toggle visibility of results div
@@ -85,7 +85,7 @@ app.controller('QuizTab', function($scope, sharedProperties){
     };
 
     /**
-     * Array of NUM_SELECTABLE_CATAGORIES length
+     * Array of NUM_SELECTABLE_categories  length
      * which ar our selected interests for searching
      * @type {Array}
      */
@@ -93,15 +93,17 @@ app.controller('QuizTab', function($scope, sharedProperties){
 
     /**
      * Pushes selected index to array of selected indices,
-     * if more than NUM_SELECTABLE_CATAGORIES
+     * if more than NUM_SELECTABLE_categories 
      * contained there, drops first
      * @param pIndex
      */
     $scope.itemSelected = function(pIndex){
 
-        if($scope.selectedIndices.length >= $scope.NUM_SELECTABLE_CATAGORIES){
+        if($scope.selectedIndices.length >= $scope.NUM_SELECTABLE_categories ){
             $scope.selectedIndices.shift();
+            $scope.interests.shift();
         }
+        $scope.interests.push($scope.categories [pIndex]);
         $scope.selectedIndices.push(pIndex);
     };
 
@@ -125,7 +127,7 @@ app.controller('QuizTab', function($scope, sharedProperties){
     };
 
     /**
-     * Search button click
+     * Quiz button click
      */
     $scope.quizButtonClicked = function(){
         $scope.quizDivVisible = false;
@@ -182,13 +184,6 @@ app.controller('ReadingListTab',function($scope, sharedProperties){
      * @type {number}
      */
     $scope.booksReviewed = 4;//TODO: get data from server
-
-
-    /**
-     * Array of student's interests
-     * @type {Array}
-     */
-    $scope.interests = ["Animals","Ninjas","Travel"];//TODO: get data from server
 
     /**
      * ngClick of Quiz button
@@ -271,10 +266,10 @@ app.service('sharedProperties', function() {
     ];
 
     /**
-     * Array of mock catagories
+     * Array of mock categories 
      * @type {Array}
      */
-    var catagories  = [ "Action & Adventure",
+    var categories   = [ "Action & Adventure",
         "Animals & Pets",
         "Famous People",
         "All Time Favorite Stories (All Time Favourite Stories)",
@@ -300,8 +295,8 @@ app.service('sharedProperties', function() {
         getBooks: function() {
             return books;
         },
-        getCatagories: function() {
-            return catagories;
+        getcategories : function() {
+            return categories ;
         }
     };
 });

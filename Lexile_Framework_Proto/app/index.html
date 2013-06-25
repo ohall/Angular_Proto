@@ -89,17 +89,15 @@
                 <!--QUIZ TAB-->
                 <div class="tab-pane" ng-controller="QuizTab" id="srcQuiz">
                     <h5>Hi {{student.firstName}}!</h5>
-                    <form class="form-search">
-                        <div class="input-block-level">
+                    <form class="span12 form-search quizHeader">
+                        <div class="span12 input-block-level">
                             <input type="text" class="span4 input-large"
-                                   placeholder="Enter Book Title, Author or Keyword" ng-model="title">
+                                   placeholder="Enter Book Title, Author or Keyword" ng-model="searchKeyWord">
 
                             </input>
                             <button type="submit" class="btn">Quick Search</button>
                         </div>
-                    </form>
-                   <div class="searchingForm-{{searchDivVisible}}">
-                        <div class="span8 checkboxes" >
+                        <div class="span12 checkboxes" >
                             <input type="checkbox" class="checkbox"
                                    ng-model="isQuizOnly">Quizzes only</input>
                             <input type="checkbox" class="checkbox"
@@ -107,19 +105,48 @@
                             <input type="checkbox" class="checkbox"
                                    ng-model="isInMyLexileOnly"/>In my Lexile range</input>
                         </div>
-                        <span class="searchlist">
-                           <h4>Select catagories</h4>
-                           <div class="selected-{{isSelectedIndex($index)}}"
+                    </form>
+                   <div class="span12 searchingForm-{{searchDivVisible}}">
+                       <div class="searchlist">
+                           <h4 style="padding: 10px">Select categories </h4>
+                           <div class="searchlistItem selected-{{isSelectedIndex($index)}}"
                                  ng-click="itemSelected($index)"
-                                 ng-repeat="catagory in catagories">{{catagory}}</div>
-
-                        </span>
-                        <input type="button" class="btn-large"
+                                 ng-repeat="catagory in categories ">{{catagory}}</div>
+                       </div>
+                        <input type="button" class="btn btn-large"
                               value="Search"
                               ng-click="searchButtonClick()">
-                   </div>
-
+                       </div>
                    <div class="quizselectionDiv-{{quizDivVisible}}">
+
+                       <div class="span12 selectedCatagories">
+                           <h4 style="float: left;padding: 10px">Selected categories :</h4>
+                           <div style="float: left">
+                           <div class="searchlistItem" ng-repeat="interest in interests">
+                               {{interest}}
+                           </div>
+                           </div>
+                           <p class="changeCatLink">Choose different categories</p>
+                       </div>
+
+                       <div class="span12" style="padding:20px 0px 20px">
+                           <input type="button" class="btn btn-large"
+                                  value="Search" style="float: right"
+                                  ng-click="searchButtonClick()">
+                       </div>
+
+                       <div class="span12">
+                           <h2 class="resultsForText">Results for: {{searchKeyWord}}</h2>
+                           <button style="float: right;margin: 0px 10px 60px 10px" type="button" class="btn">Print</button>
+                           <div style="float: right" class="btn-group" data-toggle="buttons-radio">
+                               <button type="button" class="btn"><i class="icon-th-large"></i></button>
+                               <button type="button" class="btn"><i class="icon-align-justify"></i></button>
+                           </div>
+
+
+                       </div>
+
+
                        <span ng-repeat="book in books" class="bookRecItem">
                              <img class="cover" ng-src="images/{{book.cover}}.jpg">
                              <div class="bookRecTextArea" >
